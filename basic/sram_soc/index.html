@@ -1,0 +1,1244 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+    
+    
+      
+        <title>封装SRAM-SOC - 重庆大学硬件综合设计实验文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.be71726b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sram-soc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="重庆大学硬件综合设计实验文档" class="md-header__button md-logo" aria-label="重庆大学硬件综合设计实验文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6V9z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            重庆大学硬件综合设计实验文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              封装SRAM-SOC
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cyyself/CO-lab-docs-CQU/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CO-lab-docs-CQU
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../env/vivado/" class="md-tabs__link">
+        环境配置
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../lab4/" class="md-tabs__link md-tabs__link--active">
+        基本任务
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ext/axi/" class="md-tabs__link">
+        扩展实验
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tips/common/" class="md-tabs__link">
+        调试技巧
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="重庆大学硬件综合设计实验文档" class="md-nav__button md-logo" aria-label="重庆大学硬件综合设计实验文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6V9z"/></svg>
+
+    </a>
+    重庆大学硬件综合设计实验文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cyyself/CO-lab-docs-CQU/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CO-lab-docs-CQU
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        环境配置
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="环境配置" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          环境配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../env/vivado/" class="md-nav__link">
+        Vivado安装
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../env/resource/" class="md-nav__link">
+        实验资料包
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        基本任务
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基本任务" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          基本任务
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab4/" class="md-nav__link">
+        回顾计组实验四
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extend_52/" class="md-nav__link">
+        扩展到52条指令
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extend_57/" class="md-nav__link">
+        扩展到57条指令
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          封装SRAM-SOC
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        封装SRAM-SOC
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    回顾
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soc" class="md-nav__link">
+    为什么要连接SOC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    连接方法
+  </a>
+  
+    <nav class="md-nav" aria-label="连接方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sram_ram-vivado" class="md-nav__link">
+    资料包sram_ram vivado项目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mipssoc_sram" class="md-nav__link">
+    连接mips与soc_sram
+  </a>
+  
+    <nav class="md-nav" aria-label="连接mips与soc_sram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clkresetenint" class="md-nav__link">
+    添加clk、reseten、int
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inst_ram" class="md-nav__link">
+    连接inst_ram信号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data_ram" class="md-nav__link">
+    连接data_ram信号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    调试debug信号
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    地址转换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inst_ramdata_ram" class="md-nav__link">
+    inst_ram、data_ram配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    功能测试
+  </a>
+  
+    <nav class="md-nav" aria-label="功能测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pc" class="md-nav__link">
+    PC复位地址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace" class="md-nav__link">
+    trace调试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#softfuncfunc_part" class="md-nav__link">
+    关于soft中的func与func_part
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    接入方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    上板测试
+  </a>
+  
+    <nav class="md-nav" aria-label="上板测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    调节CPU时钟频率
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_cache/" class="md-nav__link">
+        基础Cache
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        扩展实验
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="扩展实验" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          扩展实验
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/axi/" class="md-nav__link">
+        AXI接口
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/opt/" class="md-nav__link">
+        性能优化
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/cache/" class="md-nav__link">
+        Cache
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/mmu/" class="md-nav__link">
+        MMU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/os/" class="md-nav__link">
+        运行操作系统
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/la32/" class="md-nav__link">
+        LoongArch32
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        调试技巧
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="调试技巧" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          调试技巧
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/common/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/wave_debug/" class="md-nav__link">
+        使用波形图
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/git/" class="md-nav__link">
+        Git使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/disasm/" class="md-nav__link">
+        反汇编
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    回顾
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#soc" class="md-nav__link">
+    为什么要连接SOC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    连接方法
+  </a>
+  
+    <nav class="md-nav" aria-label="连接方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sram_ram-vivado" class="md-nav__link">
+    资料包sram_ram vivado项目
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mipssoc_sram" class="md-nav__link">
+    连接mips与soc_sram
+  </a>
+  
+    <nav class="md-nav" aria-label="连接mips与soc_sram">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clkresetenint" class="md-nav__link">
+    添加clk、reseten、int
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inst_ram" class="md-nav__link">
+    连接inst_ram信号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data_ram" class="md-nav__link">
+    连接data_ram信号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug" class="md-nav__link">
+    调试debug信号
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    地址转换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inst_ramdata_ram" class="md-nav__link">
+    inst_ram、data_ram配置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    功能测试
+  </a>
+  
+    <nav class="md-nav" aria-label="功能测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pc" class="md-nav__link">
+    PC复位地址
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trace" class="md-nav__link">
+    trace调试
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#softfuncfunc_part" class="md-nav__link">
+    关于soft中的func与func_part
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    接入方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    上板测试
+  </a>
+  
+    <nav class="md-nav" aria-label="上板测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    调节CPU时钟频率
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/cyyself/CO-lab-docs-CQU/edit/master/docs/basic/sram_soc.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="sram-soc">封装SRAM-SOC<a class="headerlink" href="#sram-soc" title="Permanent link">&para;</a></h1>
+<p>本节我们讲介绍如何继续将如上设计封装为一个SRAM接口的SOC（System on chip）</p>
+<h2 id="_1">回顾<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>首先回顾总体设计，我们使用的是sram接口连接inst_ram 和 data_ram，其结构图如下：</p>
+<p><img alt="sram_soc_1" src="../../img/sram_soc_1.png" /></p>
+<p>其中，我们使用SRAM接口连接了指令与数据存储如下：</p>
+<p><img alt="img" src="../../img/sram_soc_2.png" /></p>
+<ul>
+<li><strong>clk</strong> : 时钟信号</li>
+<li><strong>en</strong> : 使能信号，使用时置1</li>
+<li><strong>addr</strong> : 读写地址</li>
+<li><strong>wen</strong> : 写使能信号，标志写入的位置（0000标志不写入，1100写入前半字，0011写入后半字，1111写入字）</li>
+<li><strong>wdata</strong> : 写入RAM的数据</li>
+<li><strong>rdata</strong> : 从RAM中读出的数据</li>
+</ul>
+<p>综上，我们仅仅还是做了一个具有57条指令的CPU，那么，我们为什么要做一个SOC</p>
+<h2 id="soc">为什么要连接SOC<a class="headerlink" href="#soc" title="Permanent link">&para;</a></h2>
+<ul>
+<li>搭建SOC系统，连接外设</li>
+</ul>
+<p>截至目前，我们的cpu是将ins_ram、data_ram两个存储部件放置在mips同一级，在top结构内部。而在真实的soc上，存储和其他的一些设备是外设，所以我们得搭建SOC模拟真实情况连接外设，如此才能上板测试。其结构如下所示：</p>
+<p><img alt="sram_soc_3" src="../../img/sram_soc_3.png" /></p>
+<ul>
+<li>可以上板</li>
+<li>运行程序，成为真正的片上系统 </li>
+</ul>
+<h2 id="_2">连接方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h4 id="sram_ram-vivado">资料包sram_ram vivado项目<a class="headerlink" href="#sram_ram-vivado" title="Permanent link">&para;</a></h4>
+<p>sram-soc的外部顶层文件已经在此项目中提供，项目地址在<a href="https://gitee.com/cyyself/CO-lab-material-CQU/tree/2021/test/func_test_v0.01_n4ddr/soc_sram_func">CO-lab-material-CQU/test/func_test_v0.01_n4ddr/soc_sram_func</a>目录，将前面设计完成的cpu mips模块及其以下模块的.v文件全部放入该目录，并在vivado中添加新增的.v文件</p>
+<h4 id="mipssoc_sram">连接mips与soc_sram<a class="headerlink" href="#mipssoc_sram" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<h5 id="clkresetenint">添加clk、reseten、int<a class="headerlink" href="#clkresetenint" title="Permanent link">&para;</a></h5>
+<ul>
+<li>注意在之前的设计中clk对于inst_ram是下降沿取值，与当前的clk相反；</li>
+<li>注意int为常量6'd0 </li>
+</ul>
+</li>
+<li>
+<h5 id="inst_ram">连接inst_ram信号<a class="headerlink" href="#inst_ram" title="Permanent link">&para;</a></h5>
+<ul>
+<li>新增inst_sram_en使能信号</li>
+<li>inst_sram_wen默认为4'b0，无写入数据</li>
+<li>inst_sram_wdata默认32'b0，无写入数据</li>
+<li>inst_sram_addr为指令地址（<em>注意这里的地址非PC值，需要利用mmu模块[已提供]做地址转化，后续详述</em>）</li>
+<li>inst_sram_rdata为读出的指令</li>
+</ul>
+</li>
+<li>
+<h5 id="data_ram">连接data_ram信号<a class="headerlink" href="#data_ram" title="Permanent link">&para;</a></h5>
+<ul>
+<li>data_sram_en 为 data_sram 使能信号</li>
+<li>data_sram_wen 为 片选信号，<em>此处片选方式不变</em></li>
+<li>cpu_data_addr 为 数据的读写地址</li>
+<li>data_sram_wdata 为 数据的写入数据</li>
+<li>data_sram_rdata 为 数据的读出值</li>
+</ul>
+</li>
+<li>
+<h5 id="debug">调试debug信号<a class="headerlink" href="#debug" title="Permanent link">&para;</a></h5>
+<ul>
+<li>此些信号是为了方便在soc层调试增加的写入阶段信号</li>
+<li>debug_wb_pc 为 pcW</li>
+<li>debug_wb_rf_wen 为 写寄存器使能信号</li>
+<li>debug_wb_rf_wnum 为 写会regfile的寄存器值WriteRegW</li>
+<li>debug_wb_rf_wdata 为 写如regfile的数据值ResultW</li>
+</ul>
+</li>
+</ul>
+<h4 id="_3">地址转换<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<p>mmu模块在<a href="https://gitee.com/cyyself/CO-lab-material-CQU/tree/2021/ref_code/mmu">CO-lab-material-CQU/ref_code/mmu</a>目录下，将其添加到mips中</p>
+<ul>
+<li>inst_vaddr 表示指令地址 pc</li>
+<li>inst_paddr 表示 pc转换为 inst_ram正确的地址</li>
+<li>data_vaddr 表示data的地址</li>
+<li>data_paddr 表示转化为data_ram正确的地址</li>
+</ul>
+<h4 id="inst_ramdata_ram">inst_ram、data_ram配置<a class="headerlink" href="#inst_ramdata_ram" title="Permanent link">&para;</a></h4>
+<p>此时项目已经将cpu添加进去了，接下来将此项目inst_ram和data_ram进行检查，查看是否成功添加与配置，若未添加，与此前的配置参数相同重新配置。</p>
+<h2 id="_4">功能测试<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>独立测试程序比较简单，因此在通过了前6类指令的独立测试后， <strong>还不能认为我们的CPU实现正确</strong> ，我们现在需要运行更加复杂的 <strong>功能测试</strong> 程序。该功能测试程序包含89个测试点，测试了指令、延迟槽、异常等情况。</p>
+<ol>
+<li>
+<h4 id="pc">PC复位地址<a class="headerlink" href="#pc" title="Permanent link">&para;</a></h4>
+</li>
+</ol>
+<p>开始连接功能测试后，PC复位地址应改为<code>32'hbfc00000</code>。</p>
+<ol>
+<li>
+<h4 id="trace">trace调试<a class="headerlink" href="#trace" title="Permanent link">&para;</a></h4>
+</li>
+</ol>
+<p>接入soc后，我们引入了trace调试机制，可以 <strong>自动化地定位</strong> 到我们cpu运行错误的地方。关于trace调试说明请参考<code>doc/龙芯杯/A11_Trace 比对机制使用说明_v1.00</code>文档。为了进行trace调试，我们需要在mycpu_top模块引出相关的 <strong>比对信号</strong> ——<code>debug_wb_pc</code>, <code>debug_wb_rf_wen</code>, <code>debug_wb_rf_num</code>,<code>debug_wb_wdata</code>。</p>
+<p>运行仿真时，Tcl控制台会每个10000ns输出当前仿真的时间，以及当前 debug_wb_pc 的值。每通过一个测试点还会输出通过的测试点编号。</p>
+<div class="highlight"><pre><span></span><code>run <span class="nv">all</span>
+<span class="o">==============================================================</span>
+Test begin!
+----<span class="o">[</span>   <span class="m">7695</span> ns<span class="o">]</span> Number <span class="m">8</span><span class="s1">&#39;d01 Functional Test Point PASS!!!</span>
+<span class="s1">----[  16825 ns] Number 8&#39;</span>d02 Functional Test Point PASS!!!
+        <span class="o">[</span>  <span class="m">22000</span> ns<span class="o">]</span> Test is running, <span class="nv">debug_wb_pc</span> <span class="o">=</span> 0xbfc7006c
+----<span class="o">[</span>  <span class="m">25745</span> ns<span class="o">]</span> Number <span class="m">8</span><span class="s1">&#39;d03 Functional Test Point PASS!!!</span>
+<span class="s1">        [  32000 ns] Test is running, debug_wb_pc = 0xbfc4ade4</span>
+<span class="s1">----[  35075 ns] Number 8&#39;</span>d04 Functional Test Point PASS!!!
+        <span class="o">[</span>  <span class="m">42000</span> ns<span class="o">]</span> Test is running, <span class="nv">debug_wb_pc</span> <span class="o">=</span> 0xbfc2138c
+----<span class="o">[</span>  <span class="m">50525</span> ns<span class="o">]</span> Number <span class="m">8</span><span class="err">&#39;</span>d05 Functional Test Point PASS!!!
+</code></pre></div>
+<p>如果发生错误则会打印错误信息，这时就需要观察波形图进行进一步调试了。</p>
+<div class="highlight"><pre><span></span><code>--------------------------------------------------------
+<span class="o">[</span> <span class="m">31773618</span> ns<span class="o">]</span> Error!!!
+    reference: <span class="nv">PC</span> <span class="o">=</span> 0xbfc00384, <span class="nv">wb_rf_wnum</span> <span class="o">=</span> 0x1b, <span class="nv">wb_rf_wdata</span> <span class="o">=</span> 0x01af5435
+    mycpu    : <span class="nv">PC</span> <span class="o">=</span> 0xbfc58298, <span class="nv">wb_rf_wnum</span> <span class="o">=</span> 0x08, <span class="nv">wb_rf_wdata</span> <span class="o">=</span> 0xf6865a84
+</code></pre></div>
+<ol>
+<li>
+<h4 id="softfuncfunc_part">关于soft中的func与func_part<a class="headerlink" href="#softfuncfunc_part" title="Permanent link">&para;</a></h4>
+</li>
+</ol>
+<p>func是所有的57条指令的总测试集，共89个测试点。</p>
+<p>func_part目录包含三个obj文件：</p>
+<ul>
+<li>
+<p>obj_1(对应funt_full中的第1到47条测试)</p>
+</li>
+<li>
+<p>obj_2(对应funt_full中的第48到64条测试)</p>
+</li>
+<li>
+<p>obj_3(对应funt_full中的第65到89条测试)</p>
+</li>
+</ul>
+<p>从测试点65开始涉及异常。因此在测试异常相关指令时，我们可以使用obj_3直接进行测试，而不用等待前面的测试点通过。</p>
+<ol>
+<li>
+<h4 id="_5">接入方法<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+</li>
+</ol>
+<p>由于功能测试被拆成了三个部分，因此我们的golden_trace也生成了三个部分，所以在使用trace的时候需要做一些修改：如使用 obj_1 测试的时候，需要将 testbench/mycpu_tb.v 中的</p>
+<div class="highlight"><pre><span></span><code><span class="sb">`</span>define TRACE_REF_FILE <span class="s2">&quot;../../../../../../../cpu132_gettrace/golden_trace.txt</span>
+</code></pre></div>
+<p>修改成</p>
+<div class="highlight"><pre><span></span><code><span class="sb">`</span>define TRACE_REF_FILE <span class="s2">&quot;../../../../../../../cpu132_gettrace/golden_trace_1.txt</span>
+</code></pre></div>
+<p>同理使用哪个obj，就需要将testbench文件修改成对应那一条golden_trace。如果遇到<code>file can't open</code>的问题可以将路径改为 <strong>绝对路径</strong> 。</p>
+<h2 id="_6">上板测试<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>sram_soc功能测试的文件为当前使用的<code>func_test_v0.01_n4ddr/soc_sram_func</code>，在仿真完成后可以上板测试，若不通过请检查是否写了不可综合的语法（例如在Verilog里写了#来实现延迟甚至内部时钟，这样的代码是不可综合的），并检查所有的Critical Warning。如果在Implementation后出现Timing为红，可以 <strong>修改pll降低CPU频率</strong> 后进行测试。</p>
+<h4 id="cpu">调节CPU时钟频率<a class="headerlink" href="#cpu" title="Permanent link">&para;</a></h4>
+<p>可修改pll ip中cpu_clk，默认50MHz ，双击点开后如下图2进行修改。</p>
+<p><img alt="img" src="../../img/sram_soc_4.png" /></p>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月5日</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../extend_57/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 扩展到57条指令" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              扩展到57条指令
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../basic_cache/" class="md-footer__link md-footer__link--next" aria-label="Next: 基础Cache" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              基础Cache
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 College of Computer Science, Chongqing University.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56a63758.min.js"></script>
+      
+    
+  </body>
+</html>

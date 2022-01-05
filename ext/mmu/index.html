@@ -1,0 +1,1627 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+    
+    
+      
+        <title>MMU - 重庆大学硬件综合设计实验文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.be71726b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#mmu" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="重庆大学硬件综合设计实验文档" class="md-header__button md-logo" aria-label="重庆大学硬件综合设计实验文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6V9z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            重庆大学硬件综合设计实验文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              MMU
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cyyself/CO-lab-docs-CQU/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CO-lab-docs-CQU
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../env/vivado/" class="md-tabs__link">
+        环境配置
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../basic/lab4/" class="md-tabs__link">
+        基本任务
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../axi/" class="md-tabs__link md-tabs__link--active">
+        扩展实验
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tips/common/" class="md-tabs__link">
+        调试技巧
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="重庆大学硬件综合设计实验文档" class="md-nav__button md-logo" aria-label="重庆大学硬件综合设计实验文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6V9z"/></svg>
+
+    </a>
+    重庆大学硬件综合设计实验文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cyyself/CO-lab-docs-CQU/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CO-lab-docs-CQU
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        环境配置
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="环境配置" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          环境配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../env/vivado/" class="md-nav__link">
+        Vivado安装
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../env/resource/" class="md-nav__link">
+        实验资料包
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        基本任务
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基本任务" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          基本任务
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/lab4/" class="md-nav__link">
+        回顾计组实验四
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/extend_52/" class="md-nav__link">
+        扩展到52条指令
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/extend_57/" class="md-nav__link">
+        扩展到57条指令
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/sram_soc/" class="md-nav__link">
+        封装SRAM-SOC
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/basic_cache/" class="md-nav__link">
+        基础Cache
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        扩展实验
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="扩展实验" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          扩展实验
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../axi/" class="md-nav__link">
+        AXI接口
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opt/" class="md-nav__link">
+        性能优化
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cache/" class="md-nav__link">
+        Cache
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          MMU
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        MMU
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mips" class="md-nav__link">
+    MIPS内存布局
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mips_1" class="md-nav__link">
+    MIPS软件定义页表
+  </a>
+  
+    <nav class="md-nav" aria-label="MIPS软件定义页表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tlb" class="md-nav__link">
+    TLB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cp0" class="md-nav__link">
+    CP0寄存器
+  </a>
+  
+    <nav class="md-nav" aria-label="CP0寄存器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entrylo020entrylo130" class="md-nav__link">
+    EntryLo0(2,0)、EntryLo1(3,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entryhi100" class="md-nav__link">
+    EntryHi(10,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pagemask50" class="md-nav__link">
+    PageMask(5,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#badvaddr80" class="md-nav__link">
+    BadVAddr(8,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index00" class="md-nav__link">
+    Index(0,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wired60" class="md-nav__link">
+    Wired(6,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random10" class="md-nav__link">
+    Random(1,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context40" class="md-nav__link">
+    Context(4,0)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlb_1" class="md-nav__link">
+    TLB指令
+  </a>
+  
+    <nav class="md-nav" aria-label="TLB指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tlbp" class="md-nav__link">
+    TLBP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlbr" class="md-nav__link">
+    TLBR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlbwi" class="md-nav__link">
+    TLBWI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlbwr" class="md-nav__link">
+    TLBWR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlb_2" class="md-nav__link">
+    TLB相关例外
+  </a>
+  
+    <nav class="md-nav" aria-label="TLB相关例外">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tlb-refill" class="md-nav__link">
+    TLB refill
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlb-invalid" class="md-nav__link">
+    TLB invalid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlb-modified" class="md-nav__link">
+    TLB Modified
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlb_3" class="md-nav__link">
+    TLB模块设计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一些细节
+  </a>
+  
+    <nav class="md-nav" aria-label="一些细节">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vipt-cache" class="md-nav__link">
+    VIPT Cache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    分支预测问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os/" class="md-nav__link">
+        运行操作系统
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../la32/" class="md-nav__link">
+        LoongArch32
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        调试技巧
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="调试技巧" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          调试技巧
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/common/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/wave_debug/" class="md-nav__link">
+        使用波形图
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/git/" class="md-nav__link">
+        Git使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/disasm/" class="md-nav__link">
+        反汇编
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mips" class="md-nav__link">
+    MIPS内存布局
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mips_1" class="md-nav__link">
+    MIPS软件定义页表
+  </a>
+  
+    <nav class="md-nav" aria-label="MIPS软件定义页表">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tlb" class="md-nav__link">
+    TLB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cp0" class="md-nav__link">
+    CP0寄存器
+  </a>
+  
+    <nav class="md-nav" aria-label="CP0寄存器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entrylo020entrylo130" class="md-nav__link">
+    EntryLo0(2,0)、EntryLo1(3,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#entryhi100" class="md-nav__link">
+    EntryHi(10,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pagemask50" class="md-nav__link">
+    PageMask(5,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#badvaddr80" class="md-nav__link">
+    BadVAddr(8,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index00" class="md-nav__link">
+    Index(0,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wired60" class="md-nav__link">
+    Wired(6,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#random10" class="md-nav__link">
+    Random(1,0)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#context40" class="md-nav__link">
+    Context(4,0)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlb_1" class="md-nav__link">
+    TLB指令
+  </a>
+  
+    <nav class="md-nav" aria-label="TLB指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tlbp" class="md-nav__link">
+    TLBP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlbr" class="md-nav__link">
+    TLBR
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlbwi" class="md-nav__link">
+    TLBWI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlbwr" class="md-nav__link">
+    TLBWR
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlb_2" class="md-nav__link">
+    TLB相关例外
+  </a>
+  
+    <nav class="md-nav" aria-label="TLB相关例外">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tlb-refill" class="md-nav__link">
+    TLB refill
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlb-invalid" class="md-nav__link">
+    TLB invalid
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlb-modified" class="md-nav__link">
+    TLB Modified
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tlb_3" class="md-nav__link">
+    TLB模块设计
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    一些细节
+  </a>
+  
+    <nav class="md-nav" aria-label="一些细节">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vipt-cache" class="md-nav__link">
+    VIPT Cache
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    分支预测问题
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    参考资料
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/cyyself/CO-lab-docs-CQU/edit/master/docs/ext/mmu.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="mmu">MMU<a class="headerlink" href="#mmu" title="Permanent link">&para;</a></h1>
+<h2 id="mips">MIPS内存布局<a class="headerlink" href="#mips" title="Permanent link">&para;</a></h2>
+<p>MIPS的虚拟内存分为以下几个部分：</p>
+<div class="highlight"><pre><span></span><code>|----------------| &lt;- 0xFFFFFFFF
+|  Kernel Mapped |
+|     (kseg3)    |
+|----------------| &lt;- 0xE0000000
+|----------------| &lt;- 0xDFFFFFFF
+|   Supervisor   |
+|     Mapped     |
+|     (ksseg)    |
+|----------------| &lt;- 0xC0000000
+|----------------| &lt;- 0xBFFFFFFF
+|     Kernel     |
+|    Unmapped    |
+|    Uncached    |
+|     (kseg1)    |
+|----------------| &lt;- 0xA0000000
+|----------------| &lt;- 0x9FFFFFFF
+|     Kernel     |
+|    Unmapped    |
+|     cached     |
+|     (kseg0)    |
+|----------------| &lt;- 0x80000000
+|----------------| &lt;- 0x7FFFFFFF
+|      User      |
+|     Mapped     |
+|     (useg)     |
+|----------------| &lt;- 0x00000000
+</code></pre></div>
+<p>其中，对于Unmapped段(i.e. <strong>kseg0</strong> and <strong>kseg1</strong>)，我们只需要抹除高三位直接发送到总线即可。</p>
+<p>即：
+<div class="highlight"><pre><span></span><code><span class="k">assign</span><span class="w"> </span><span class="n">pa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mh">3</span><span class="mb">&#39;b000</span><span class="p">,</span><span class="n">va</span><span class="p">[</span><span class="mh">28</span><span class="o">:</span><span class="mh">0</span><span class="p">]};</span><span class="w"></span>
+</code></pre></div></p>
+<p>这里需要的是，我们需要考虑Cache属性，因为我们运行的程序中可能存在一些IO操作（例如confreg、串口、网卡）等，这些操作如果经过了Cache可能导致一些非预期的行为，且这些操作在使用<code>lb</code>、<code>lh</code>、<code>sb</code>、<code>sh</code>等非32位指令的时候，发送到总线上请求的大小需要严格按照这些指令的大小进行。</p>
+<p>此外，如果同学们设计超标量处理器，如果要运行操作系统，请务必实现<code>SYNC</code>指令以及在MMU输出Uncached时注意多个访存请求需要按序指令。</p>
+<p>对于一个基础的MMU（不实现虚拟内存所需要的TLB），只需要实现以下代码即可：</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">MMU</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">inst_va</span><span class="p">,</span><span class="w">      </span><span class="c1">// instruction virtual address</span>
+<span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">data_va</span><span class="p">,</span><span class="w">      </span><span class="c1">// data virtual address</span>
+
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">inst_pa</span><span class="p">,</span><span class="w">      </span><span class="c1">// instruction physical address</span>
+<span class="w">    </span><span class="k">output</span><span class="w">        </span><span class="n">inst_uncache</span><span class="p">,</span><span class="w"> </span><span class="c1">// instruction bypass cache</span>
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">data_pa</span><span class="p">,</span><span class="w">      </span><span class="c1">// data physical address</span>
+<span class="w">    </span><span class="k">output</span><span class="w">        </span><span class="n">inst_uncache</span><span class="w">  </span><span class="c1">// data bypass cache</span>
+<span class="p">);</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">assign</span><span class="w"> </span><span class="n">inst_pa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mh">3</span><span class="mb">&#39;b000</span><span class="p">,</span><span class="n">inst_va</span><span class="p">[</span><span class="mh">28</span><span class="o">:</span><span class="mh">0</span><span class="p">]};</span><span class="w"></span>
+<span class="w">    </span><span class="k">assign</span><span class="w"> </span><span class="n">inst_uncache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">inst_va</span><span class="p">[</span><span class="mh">29</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="k">assign</span><span class="w"> </span><span class="n">data_pa</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mh">3</span><span class="mb">&#39;b000</span><span class="p">,</span><span class="n">data_va</span><span class="p">[</span><span class="mh">28</span><span class="o">:</span><span class="mh">0</span><span class="p">]};</span><span class="w"></span>
+<span class="w">    </span><span class="k">assign</span><span class="w"> </span><span class="n">data_uncache</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">data_va</span><span class="p">[</span><span class="mh">29</span><span class="p">];</span><span class="w"></span>
+
+<span class="k">endmodule</span><span class="w"></span>
+</code></pre></div>
+<p>然后，在I-Cache和D-Cache上，我们需要引入uncache信号，来决定该请求是否通过Cache，防止一些MMIO、DMA以及ID一致性（例如写入指令后执行的场景）的异常。</p>
+<p><strong>不实现TLB的同学阅读到此即可，以下内容留给打算设计TLB的同学们阅读。</strong></p>
+<h2 id="mips_1">MIPS软件定义页表<a class="headerlink" href="#mips_1" title="Permanent link">&para;</a></h2>
+<p>经过计算机组成原理和操作系统课程，相信大家对虚拟内存已经有了一定的了解。</p>
+<p>MIPS不同于如今常见的的x86、ARM、RISC-V等架构，这些架构通常通过一个特权寄存器存储一个页表基地址(i.e. <strong>CR3</strong> )，当TLB没有匹配上的时候，CPU硬件会自动根据这个基地址访问页表，如果页表再找不到对应的地址再发生Page Fault例外。</p>
+<p>而MIPS处理器通常没有采用这样的设计，它CPU硬件上仅仅提供了一个TLB，当TLB失去匹配时会产生一个例外，并把访问的虚拟地址存入CP0的相关寄存器中，便于软件完成硬件填充页表操作。</p>
+<h3 id="tlb">TLB<a class="headerlink" href="#tlb" title="Permanent link">&para;</a></h3>
+<p>TLB的作用是供处理器运行在虚拟内存地址时快速完成虚拟地址到物理地址的转换。</p>
+<p>而在MIPS架构中，一条TLB条目包括了两个部分，比较部分和翻译部分。</p>
+<p>这里值得注意的是，MIPS的TLB表项中，一对相邻的虚拟地址页面被存在同一个表项中，并可以指向不同的物理页面。</p>
+<p>例如，如果我们写入该TLB表项的PageMask对应的页面大小是 <strong>4KB</strong> ，那么TLB会根据虚拟地址的<code>[29:13]</code>位来匹配到TLB表项，然后根据虚拟地址的<code>[12]</code>位是0还是1，来决定使用表项中EntryLo0存储的物理地址还是使用EntryLo1使用的物理地址。</p>
+<p>由于相邻的页面通常具有时间局部性和空间局部性，因此这样的设计其实在硬件上可以减小TLB带来的路径长度，减小了硬件为了支持虚拟内存所带来的Overhead。</p>
+<p>这里还有一个好处是：相比于一个TLB表项映射一个虚拟页，一个TLB表项映射两个连续的虚拟页，可以在映射两倍的页的情况下，硬件资源仅增加&#8531;（共享了VPN、MASK、ASID等位域）。</p>
+<p><img alt="tlb_entry" src="../../img/tlb_entry.jpg" /></p>
+<p>而TLB本身是远远不够的，还需要添加TLB指令，CP0提供相关寄存器来配合，以及实现相关的例外处理逻辑。</p>
+<h3 id="cp0">CP0寄存器<a class="headerlink" href="#cp0" title="Permanent link">&para;</a></h3>
+<p>为了实现TLB，我们需要在CP0中实现以下寄存器，包括：</p>
+<p><strong>以下寄存器(x,y)表示Register x, Sel y，在大家使用mtc0和mfc0指令的时候将会用到。</strong></p>
+<h4 id="entrylo020entrylo130">EntryLo0(2,0)、EntryLo1(3,0)<a class="headerlink" href="#entrylo020entrylo130" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>位域</th>
+<th>描述</th>
+<th>读/写</th>
+<th>重置状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>31</td>
+<td>写时忽略，读时返回0。</td>
+<td>读</td>
+<td>0</td>
+</tr>
+<tr>
+<td>NE</td>
+<td>30</td>
+<td>不可执行位</td>
+<td>读/写</td>
+<td>未定义</td>
+</tr>
+<tr>
+<td>PFN</td>
+<td>29:6</td>
+<td>Page Frame Number，物理页帧号，也是物理地址的高位（<code>pa[35:12]</code>）</td>
+<td>读/写</td>
+<td>未定义</td>
+</tr>
+<tr>
+<td>C</td>
+<td>5:3</td>
+<td>Cache一致性属性（推荐实现为2代表Uncached，3代表Cacheable）</td>
+<td>读/写</td>
+<td>未定义</td>
+</tr>
+<tr>
+<td>D</td>
+<td>2</td>
+<td>Dirty位，用于定义该页面是否可写。</td>
+<td>读/写</td>
+<td>未定义</td>
+</tr>
+<tr>
+<td>V</td>
+<td>1</td>
+<td>Valid，设置为1时说明该TLB表项有效，否则将产生TLB Invalied异常。</td>
+<td>读/写</td>
+<td>未定义</td>
+</tr>
+<tr>
+<td>G</td>
+<td>0</td>
+<td>Gloabl位，当它有效时忽略ASID。注意：需要EntryLo0和EntryLo1的G位同时被设置为1时，实际写入的G位才为1，否则为0。</td>
+<td>读/写</td>
+<td>未定义</td>
+</tr>
+</tbody>
+</table>
+<h4 id="entryhi100">EntryHi(10,0)<a class="headerlink" href="#entryhi100" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>位域</th>
+<th>描述</th>
+<th>读/写</th>
+<th>重置状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VPN2</td>
+<td>31:13</td>
+<td>虚拟地址的高位</td>
+<td>读/写</td>
+<td>未定义</td>
+</tr>
+<tr>
+<td>0</td>
+<td>12:8</td>
+<td>写时忽略，读时返回0。</td>
+<td>读</td>
+<td>0</td>
+</tr>
+<tr>
+<td>ASID</td>
+<td>7:0</td>
+<td>地址空间标识域（用于多个进程可以共享TLB，从而不必在地址空间切换时刷掉整个TLB导致性能开销）</td>
+<td>读/写</td>
+<td>未定义</td>
+</tr>
+</tbody>
+</table>
+<h4 id="pagemask50">PageMask(5,0)<a class="headerlink" href="#pagemask50" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>位域</th>
+<th>描述</th>
+<th>读/写</th>
+<th>重置状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mask</td>
+<td>28:13</td>
+<td>页面掩码，指代页面大小，例如全0表示4KB，<code>[14:13]</code>为1其它为0表示16KB，以此类推。</td>
+<td>读/写</td>
+<td>未定义</td>
+</tr>
+<tr>
+<td>0</td>
+<td>31:29,12:0</td>
+<td>写时忽略，读时返回0。</td>
+<td>读</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h4 id="badvaddr80">BadVAddr(8,0)<a class="headerlink" href="#badvaddr80" title="Permanent link">&para;</a></h4>
+<p>我们在之前已经实现了<code>AdEL</code>和<code>AdES</code>两种例外，当这两种例外发生时需要将错误的虚拟地址填写到这个寄存器中，当发生TLB相关的3种例外时也是如此。</p>
+<h4 id="index00">Index(0,0)<a class="headerlink" href="#index00" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>位域</th>
+<th>描述</th>
+<th>读/写</th>
+<th>重置状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P</td>
+<td>31</td>
+<td>0表示上一条TLBP指令找到了对应的TLB表项，1表示没有找到。</td>
+<td>读</td>
+<td>未定义</td>
+</tr>
+<tr>
+<td>0</td>
+<td>30:log2(nr_tlb_entry)</td>
+<td>写时忽略，读时返回0。</td>
+<td>读</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Index</td>
+<td>log2(nr_tlb_entry)-1:0</td>
+<td>TLB的索引号，用于TLBP指令返回找到的TLB表项号以及写入要写入的TLB表项号供TLBWI指令使用。</td>
+<td>读/写</td>
+<td>未定义</td>
+</tr>
+</tbody>
+</table>
+<h4 id="wired60">Wired(6,0)<a class="headerlink" href="#wired60" title="Permanent link">&para;</a></h4>
+<p>读写寄存器。</p>
+<p>Wired寄存器用于规定<code>TLBWR</code>指令随机替换TLB时的界限，复位时设置为0，表示Random寄存器随机范围的下界（包含）。</p>
+<h4 id="random10">Random(1,0)<a class="headerlink" href="#random10" title="Permanent link">&para;</a></h4>
+<p>只读寄存器，复位时置为TLB表项数量-1。</p>
+<p>用于配合Wired寄存器指示当前随机产生的TLB表项索引号，以供<code>TLBWR</code>指令写入使用。</p>
+<p>随机的方式由处理器设计自定义，比如可以每个clock+1到达上界再恢复为wired寄存器的值。</p>
+<h4 id="context40">Context(4,0)<a class="headerlink" href="#context40" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>位域</th>
+<th>描述</th>
+<th>读/写</th>
+<th>重置状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PTEBase</td>
+<td>31:23</td>
+<td>页表基地址，供操作系统使用。</td>
+<td>读/写</td>
+<td>0</td>
+</tr>
+<tr>
+<td>BadVPN2</td>
+<td>22:4</td>
+<td>当TLB例外发生时，CP0应该写入<code>va[31:13]</code>到该寄存器</td>
+<td>读</td>
+<td>未定义</td>
+</tr>
+<tr>
+<td>0</td>
+<td>3:0</td>
+<td>写时忽略，读时返回0。</td>
+<td>读</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tlb_1">TLB指令<a class="headerlink" href="#tlb_1" title="Permanent link">&para;</a></h3>
+<h4 id="tlbp">TLBP<a class="headerlink" href="#tlbp" title="Permanent link">&para;</a></h4>
+<p>指令格式：</p>
+<div class="highlight"><pre><span></span><code>31      26 25  24                  6 5      0
+|       |   |  |                   | |      |
+v       v   v  v                   v v      v
+|--------------------------------------------|
+|   COP0 | CO |       &#39;0&#39;*19        |  TLBP  |
+| 010000 |  1 | 0000000000000000000 | 001000 |
+|--------------------------------------------|
+</code></pre></div>
+<p>描述：将CP0的EntryHi寄存器相同的TLB表项地址送入CP0的Index寄存器，并把CP0的Index寄存器的P位设置为0。若无法匹配，则Index寄存器的P位设置为1。</p>
+<h4 id="tlbr">TLBR<a class="headerlink" href="#tlbr" title="Permanent link">&para;</a></h4>
+<p>指令格式：</p>
+<div class="highlight"><pre><span></span><code>31      26 25  24                  6 5      0
+|       |   |  |                   | |      |
+v       v   v  v                   v v      v
+|--------------------------------------------|
+|   COP0 | CO |       &#39;0&#39;*19        |  TLBR  |
+| 010000 |  1 | 0000000000000000000 | 000001 |
+|--------------------------------------------|
+</code></pre></div>
+<p>描述：根据CP0的Index寄存器读取TLB表项状态到CP0的PageMask、EntryHi、EntryLo0、EntryLo1寄存器。</p>
+<h4 id="tlbwi">TLBWI<a class="headerlink" href="#tlbwi" title="Permanent link">&para;</a></h4>
+<p>指令格式：</p>
+<div class="highlight"><pre><span></span><code>31      26 25  24                  6 5      0
+|       |   |  |                   | |      |
+v       v   v  v                   v v      v
+|--------------------------------------------|
+|   COP0 | CO |       &#39;0&#39;*19        |  TLBWI |
+| 010000 |  1 | 0000000000000000000 | 000010 |
+|--------------------------------------------|
+</code></pre></div>
+<p>描述：根据CP0的Index寄存器的值，将PageMask、EntryHi、EntryLo0、EntryLo1写入TLB。</p>
+<h4 id="tlbwr">TLBWR<a class="headerlink" href="#tlbwr" title="Permanent link">&para;</a></h4>
+<p>指令格式：</p>
+<div class="highlight"><pre><span></span><code>31      26 25  24                  6 5      0
+|       |   |  |                   | |      |
+v       v   v  v                   v v      v
+|--------------------------------------------|
+|   COP0 | CO |       &#39;0&#39;*19        |  TLBWR |
+| 010000 |  1 | 0000000000000000000 | 000110 |
+|--------------------------------------------|
+</code></pre></div>
+<p>描述：根据CP0的Random寄存器的值，将PageMask、EntryHi、EntryLo0、EntryLo1写入TLB。</p>
+<h3 id="tlb_2">TLB相关例外<a class="headerlink" href="#tlb_2" title="Permanent link">&para;</a></h3>
+<h4 id="tlb-refill">TLB refill<a class="headerlink" href="#tlb-refill" title="Permanent link">&para;</a></h4>
+<p>产生原因：正在访问的虚拟地址TLB没有匹配到（注意，没有匹配不等同Valid Bit没有设置）。</p>
+<p><code>CP0_status[ExCode]</code>：TLBL（ExCode=2，Load操作或取指）、TLBS：（ExCode=3，store操作）</p>
+<p>额外动作（不含Status、Cause、EPC的常规操作）：</p>
+<ul>
+<li>CP0_BadVAddr&lt;=PC/MEM_Addr</li>
+<li>CP0_Context[BADVPN2]&lt;=PC/MEM_Addr[31:13]</li>
+<li>CP0_EntryHi[VPN2]&lt;=PC/MEM_Addr[31:13]</li>
+</ul>
+<h4 id="tlb-invalid">TLB invalid<a class="headerlink" href="#tlb-invalid" title="Permanent link">&para;</a></h4>
+<p>产生原因：正在访问的虚拟地址TLB匹配成功，但是Valid Bit为0。</p>
+<p><code>CP0_status[ExCode]</code>：TLBL（ExCode=2，Load操作或取指）、TLBS：（ExCode=3，store操作）</p>
+<p>额外动作（不含Status、Cause、EPC的常规操作）：</p>
+<ul>
+<li>CP0_BadVAddr&lt;=PC/MEM_Addr</li>
+<li>CP0_Context[BADVPN2]&lt;=PC/MEM_Addr[31:13]</li>
+<li>CP0_EntryHi[VPN2]&lt;=PC/MEM_Addr[31:13]</li>
+</ul>
+<h4 id="tlb-modified">TLB Modified<a class="headerlink" href="#tlb-modified" title="Permanent link">&para;</a></h4>
+<p>产生原因：写入某个虚拟地址的时候，TLB匹配有效，但是Dirty Bit为0（被保护不可写）。</p>
+<p><code>CP0_status[ExCode]</code>：Mod（ExCode=1）。</p>
+<p>额外动作（不含Status、Cause、EPC的常规操作）：</p>
+<ul>
+<li>CP0_BadVAddr&lt;=PC/MEM_Addr</li>
+<li>CP0_Context[BADVPN2]&lt;=PC/MEM_Addr[31:13]</li>
+<li>CP0_EntryHi[VPN2]&lt;=PC/MEM_Addr[31:13]</li>
+</ul>
+<h3 id="tlb_3">TLB模块设计<a class="headerlink" href="#tlb_3" title="Permanent link">&para;</a></h3>
+<p>对于实现TLB的MMU，推荐按照以下模板设计：</p>
+<div class="highlight"><pre><span></span><code><span class="k">module</span><span class="w"> </span><span class="n">MMU</span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">inst_va</span><span class="p">,</span><span class="w">      </span><span class="c1">// instruction virtual address</span>
+<span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">data_va</span><span class="p">,</span><span class="w">      </span><span class="c1">// data virtual address</span>
+
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">inst_pa</span><span class="p">,</span><span class="w">      </span><span class="c1">// instruction physical address</span>
+<span class="w">    </span><span class="k">output</span><span class="w">        </span><span class="n">inst_uncache</span><span class="p">,</span><span class="w"> </span><span class="c1">// instruction bypass cache</span>
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">data_pa</span><span class="p">,</span><span class="w">      </span><span class="c1">// data physical address</span>
+<span class="w">    </span><span class="k">output</span><span class="w">        </span><span class="n">inst_uncache</span><span class="p">,</span><span class="w"> </span><span class="c1">// data bypass cache</span>
+<span class="w">    </span><span class="c1">// CP0 in</span>
+<span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">EntryHi_i</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">PageMask_i</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">EntryLo0_i</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">EntryLo1_i</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">Index_i</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">Random_i</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// CP0 out</span>
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">EntryHi_o</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">PageMask_o</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">EntryLo0_o</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">EntryLo1_o</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">output</span><span class="w"> </span><span class="p">[</span><span class="mh">31</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w"> </span><span class="n">Index_o</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// TLB instruction</span>
+<span class="w">    </span><span class="k">input</span><span class="w">  </span><span class="p">[</span><span class="mh">6</span><span class="o">:</span><span class="mh">0</span><span class="p">]</span><span class="w">  </span><span class="n">TLB_instr</span><span class="p">,</span><span class="w">    </span><span class="c1">// TLBP,TLBR,TLBWI,TLBWR</span>
+<span class="w">    </span><span class="k">input</span><span class="w">         </span><span class="n">clk</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// TLB flag</span>
+<span class="w">    </span><span class="k">output</span><span class="w">        </span><span class="n">inst_match</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">output</span><span class="w">        </span><span class="n">data_match</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">output</span><span class="w">        </span><span class="n">inst_valid</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">output</span><span class="w">        </span><span class="n">data_valid</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">output</span><span class="w">        </span><span class="n">data_writeable</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+
+<span class="c1">// 一些reg，定义你的TLB存取方式，如果流水化也可以使用Block Memory。</span>
+
+<span class="c1">// 定义TLB相关的组合逻辑</span>
+
+<span class="k">always</span><span class="w"> </span><span class="p">@(</span><span class="k">posedge</span><span class="w"> </span><span class="n">clk</span><span class="p">)</span><span class="w"> </span><span class="k">begin</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// 定义TLB指令的处理</span>
+<span class="k">end</span><span class="w"></span>
+
+<span class="k">endmodule</span><span class="w"></span>
+</code></pre></div>
+<h2 id="_1">一些细节<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h3 id="vipt-cache">VIPT Cache<a class="headerlink" href="#vipt-cache" title="Permanent link">&para;</a></h3>
+<p>细调过Cache参数的同学们一定注意过，Cache往往出现在影响CPU时序的关键路径上，与此同时若采用PIPT Cache（也就是虚拟地址传给TLB匹配后再把物理地址送入Cache），其匹配时又串上了一个TLB那么必然对频率造成更大的影响。</p>
+<p>如果我们每路Cache Index的用到的虚拟地址部分超过了12位，就需要留意这个问题，因此，我们可以使用VIPT的设计。</p>
+<p>Virtually Indexed Physically Tagged (VIPT) Cache 是带有MMU的处理器Cache常见的组织形式。在TLB匹配之前用虚拟地址作为Cache的Index，送入TLB进行匹配，这样Cache的匹配就可以与TLB的匹配同步进行，避免TLB的存在过多影响频率。</p>
+<p>这里还需要注意一点，若VIPT Cache若采用写回策略，会出现同义问题（synoyms）以及重名（aliasing）问题，即一个物理地址对应了多个虚拟地址，遇到这部分问题读者可以自己思考结合《超标量处理器设计》P79所提的根据物理地址划分Bank的方法来解决，不过考虑到大多数同学造的Cache每一路最多4KB，因此大家在FPGA上实际造机的时候可能很难遇到。</p>
+<p><em>P.S. 如果硬件综合设计期间时间有限，可以让操作系统全部跑在Uncached地址段来简化一些必要的实现。</em></p>
+<h3 id="_2">分支预测问题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<p>在启用MMU的处理器上若使用了分支预测器，可能导致跳转的位置不在TLB中从而导致TLB例外的情况，这样的做法不符合ISA定义。甚至有可能导致跳转到了无效地址处，继而内核无法处理这个Page Fault，最终导致进程被杀。因此同学们在设计处理器时需要考虑这种情况，如果一定要达成跑通操作系统的目标，可以尝试简化一些提高性能的设计。</p>
+<p>此外，学有余力的同学们也可以了解一下Meltdown和Spectre漏洞，了解一下MMU权限管理配合Cache和分支预测器可能带来的侧信道问题，可以思考硬件上如何解决这样的问题，同时对CPU性能的影响尽可能小，特别是信息安全专业将来有志于软硬件协同安全研究的同学。</p>
+<h2 id="_3">参考资料<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.mips.com/products/architectures/mips32-2/">MIPS32 Architecture</a></p>
+<p><a href="https://www.mips.com/?do-download=the-mips32-and-micromips32-privileged-resource-architecture-v5-05">The MIPS32 and microMIPS32 Privileged Resource Architecture v5.05</a></p>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月5日</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../cache/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Cache" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Cache
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../os/" class="md-footer__link md-footer__link--next" aria-label="Next: 运行操作系统" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              运行操作系统
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 College of Computer Science, Chongqing University.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56a63758.min.js"></script>
+      
+    
+  </body>
+</html>

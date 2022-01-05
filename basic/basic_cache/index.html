@@ -1,0 +1,1124 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+    
+    
+      
+        <title>基础Cache - 重庆大学硬件综合设计实验文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.be71726b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cache" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="重庆大学硬件综合设计实验文档" class="md-header__button md-logo" aria-label="重庆大学硬件综合设计实验文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6V9z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            重庆大学硬件综合设计实验文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              基础Cache
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cyyself/CO-lab-docs-CQU/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CO-lab-docs-CQU
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../env/vivado/" class="md-tabs__link">
+        环境配置
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../lab4/" class="md-tabs__link md-tabs__link--active">
+        基本任务
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ext/axi/" class="md-tabs__link">
+        扩展实验
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tips/common/" class="md-tabs__link">
+        调试技巧
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="重庆大学硬件综合设计实验文档" class="md-nav__button md-logo" aria-label="重庆大学硬件综合设计实验文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6V9z"/></svg>
+
+    </a>
+    重庆大学硬件综合设计实验文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cyyself/CO-lab-docs-CQU/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CO-lab-docs-CQU
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        环境配置
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="环境配置" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          环境配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../env/vivado/" class="md-nav__link">
+        Vivado安装
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../env/resource/" class="md-nav__link">
+        实验资料包
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        基本任务
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基本任务" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          基本任务
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab4/" class="md-nav__link">
+        回顾计组实验四
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extend_52/" class="md-nav__link">
+        扩展到52条指令
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extend_57/" class="md-nav__link">
+        扩展到57条指令
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sram_soc/" class="md-nav__link">
+        封装SRAM-SOC
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          基础Cache
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        基础Cache
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sram" class="md-nav__link">
+    类 sram 接口
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sram_1" class="md-nav__link">
+    类 sram 接口的状态机设计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache_1" class="md-nav__link">
+    写回 cache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache_2" class="md-nav__link">
+    写回 cache 的状态机设计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        扩展实验
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="扩展实验" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          扩展实验
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/axi/" class="md-nav__link">
+        AXI接口
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/opt/" class="md-nav__link">
+        性能优化
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/cache/" class="md-nav__link">
+        Cache
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/mmu/" class="md-nav__link">
+        MMU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/os/" class="md-nav__link">
+        运行操作系统
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/la32/" class="md-nav__link">
+        LoongArch32
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        调试技巧
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="调试技巧" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          调试技巧
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/common/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/wave_debug/" class="md-nav__link">
+        使用波形图
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/git/" class="md-nav__link">
+        Git使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/disasm/" class="md-nav__link">
+        反汇编
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sram" class="md-nav__link">
+    类 sram 接口
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sram_1" class="md-nav__link">
+    类 sram 接口的状态机设计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache_1" class="md-nav__link">
+    写回 cache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache_2" class="md-nav__link">
+    写回 cache 的状态机设计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/cyyself/CO-lab-docs-CQU/edit/master/docs/basic/basic_cache.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="cache">基础Cache<a class="headerlink" href="#cache" title="Permanent link">&para;</a></h1>
+<h2 id="sram">类 sram 接口<a class="headerlink" href="#sram" title="Permanent link">&para;</a></h2>
+<p>在实现基础 cache 时，cache 与数据通路和转接桥之间都通过类 sram 接口进行通信，所以我们需要足够了解类 sram 接口的工作方式<br />
+类 sram 接口包括以下信号:  </p>
+<table>
+<thead>
+<tr>
+<th>信号</th>
+<th>位宽</th>
+<th>方向</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>clk</td>
+<td>1</td>
+<td>master-&gt;slave</td>
+<td>时钟信号</td>
+</tr>
+<tr>
+<td>req</td>
+<td>1</td>
+<td>master-&gt;slave</td>
+<td>请求信号，置1时表示有读写请求</td>
+</tr>
+<tr>
+<td>wr</td>
+<td>1</td>
+<td>master-&gt;slave</td>
+<td>写使能信号，置1时表示该次请求为写</td>
+</tr>
+<tr>
+<td>size</td>
+<td>[1:0]</td>
+<td>master-&gt;slave</td>
+<td>该次请求传输的字节数，0：1byte，1：2bytes， 2：4bytes</td>
+</tr>
+<tr>
+<td>addr</td>
+<td>[31:0]</td>
+<td>master-&gt;slave</td>
+<td>该次请求的地址</td>
+</tr>
+<tr>
+<td>wdata</td>
+<td>[31:0]</td>
+<td>master-&gt;slave</td>
+<td>该次请求写的数据</td>
+</tr>
+<tr>
+<td>addr_ok</td>
+<td>1</td>
+<td>slave-&gt;master</td>
+<td>表示该次请求的地址传输 OK，读：地址传输完成，写：地址和数据均传输完成</td>
+</tr>
+<tr>
+<td>data_ok</td>
+<td>1</td>
+<td>slave-&gt;master</td>
+<td>该次请求的数据 OK，读：希望读的数据返回，写：数据写入完成</td>
+</tr>
+<tr>
+<td>rdata</td>
+<td>[31:0]</td>
+<td>slave-&gt;master</td>
+<td>该次请求返回的数据</td>
+</tr>
+</tbody>
+</table>
+<p>类 sram 接口一次请求的大致过程如下：</p>
+<ul>
+<li>
+<p>master 端拉高 <code>req</code> 信号并给出该次请求的各项参数（读或写，请求的地址，请求的字节数，请求写的数据等等）</p>
+</li>
+<li>
+<p>slave 端存储 master 端给出的请求参数后拉高 <code>addr_ok</code> （在 <code>addr_ok</code> 拉高后 master 可能不再保持请求各项参数有效）</p>
+</li>
+<li>
+<p>slave 处理请求，这可能需要数个周期（存储器的时钟速度往往慢于 CPU 故读写，可能需要多个周期完成读写）</p>
+</li>
+<li>
+<p>slave 处理完成，将请求处理结果返回，并拉高 <code>data_ok</code> （读：需要在 <code>rdata</code> 上给出读取的数据，写：仅拉高 <code>data_ok</code> 即可）</p>
+</li>
+</ul>
+<p>注意 sram 接口的地址信号（addr）以字节寻址，其指向读写数据的最低有效位。我们需要将 addr 和 size 信号配合起来使用：  </p>
+<ul>
+<li>
+<p><code>size</code>==0 读写单字节，<code>addr</code> 最低两位可以是任意值</p>
+</li>
+<li>
+<p><code>size</code>==1 读写半字，<code>addr</code> 最低位需要为 0，否则发生地址错误异常</p>
+</li>
+<li>
+<p><code>size</code>==2 读写一个字，<code>addr</code> 最低两位需要为 0，否则发生地址错误异常</p>
+</li>
+</ul>
+<p>下表列出了在各种有效的 addr 和 size 组合下，有效数据出现的位置</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><code>data[31:24]</code></th>
+<th><code>data[23:16]</code></th>
+<th><code>data[15:8]</code></th>
+<th><code>data[7:0]</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>size</code>==2'b00, <code>addr[1:0]</code>==2'b00</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>valid</td>
+</tr>
+<tr>
+<td><code>size</code>==2'b00, <code>addr[1:0]</code>==2'b01</td>
+<td>-</td>
+<td>-</td>
+<td>valid</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>size</code>==2'b00, <code>addr[1:0]</code>==2'b10</td>
+<td>-</td>
+<td>valid</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>size</code>==2'b00, <code>addr[1:0]</code>==2'b11</td>
+<td>valid</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>size</code>==2'b01, <code>addr[1:0]</code>==2'b00</td>
+<td>-</td>
+<td>-</td>
+<td>valid</td>
+<td>valid</td>
+</tr>
+<tr>
+<td><code>size</code>==2'b01,  <code>addr[1:0]</code>==2'b10</td>
+<td>valid</td>
+<td>valid</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><code>size</code>==2'b10, <code>addr[1:0]</code>==2'b00</td>
+<td>valid</td>
+<td>valid</td>
+<td>valid</td>
+<td>valid</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sram_1">类 sram 接口的状态机设计<a class="headerlink" href="#sram_1" title="Permanent link">&para;</a></h2>
+<p>在了解了类 sram 接口的工作机制之后，我们可以基于此设计一个状态机来控制类 sram 接口的数据传输，设计状态机需要关注状态机可能处于的状态和促使状态改变的标志信号或者标志信号组合 <br />
+我们首先来看看类 sram 接口可能处于的状态：  </p>
+<ul>
+<li>
+<p><code>IDLE</code>：等待请求到达</p>
+</li>
+<li>
+<p><code>ADDR</code>：传输包括 addr 在内的请求参数</p>
+</li>
+<li>
+<p><code>DATA</code>：传输数据</p>
+</li>
+</ul>
+<p>接下来我们需要决定类 sram 接口是如何在状态之间转移的</p>
+<ul>
+<li>
+<p>显然，当 master 端拉高 <code>req</code> 信号时，请求被发起，在 <code>req</code> 信号为高的第一个时钟上升沿状态机应当从 <code>IDLE</code> 转到 <code>ADDR</code></p>
+</li>
+<li>
+<p>当请求的参数被接受时，<code>addr_ok</code> 拉高，在此后的第一个时钟上升沿，状态机应当转到 <code>DATA</code></p>
+</li>
+<li>
+<p>当数据传输完成，<code>data_ok</code> 拉高，此后的第一个时钟上升沿，状态机回到 <code>IDLE</code>，等待下一个请求</p>
+</li>
+</ul>
+<p>以上给出的是一个比较简单但是可行的例子，我们也可以添加更多状态以实现对类 sram 接口更加精细的控制</p>
+<p>状态机的存在使得我们的模块能够知道请求当前的状态，我们需要依据状态机的当前状态来生成其余的控制信号</p>
+<p>值得注意的是，在类 sram 接口完成请求参数传输并拉高 <code>addr_ok</code> 后， <strong>如果继续拉高 <code>req</code> 信号，会被认为是发出了一个新的请求</strong> ，这可能导致一系列的 bug<br />
+比如，当 I-cache 取指完成，但 EXE 阶段仍有一条乘法指令造成流水线阻塞，此时如果继续拉高 req 信号，类 sram 接口将会开始一个新的请求处理过程，如果在类 sram 接口完成请求处理之前乘法结束，流水线继续流动，那么类 sram 接口返回的指令将会在之后的某个周期被读取，于是错误的取指便发生了</p>
+<div class="highlight"><pre><span></span><code>t           -------------------------------------------------------------&gt;
+
+sram-l      &lt;--------req process-------&gt;&lt;--------req process-----&gt;
+         开始取指                    取指完成 此时错误发起了新的取指
+mul                &lt;----------executing mul---------&gt;
+              开始执行乘法                       乘法执行结束
+stall-if    &lt;----------------------high--------------------------&gt;&lt;-low--&gt;
+
+req         &lt;----------------------high--------------------------&gt;&lt;-low--&gt; 
+       
+</code></pre></div>
+<p>另外，我们需要考虑流水线因为分支预测错误（在使用了分支预测的情况下）和发生异常而清空的情况，如果在发生流水线清空的时候取指阶段的类 sram 读请求尚未完成，而类 sram 接口并没有取消请求的机制，那么我们就需要忽略该请求返回的结果，以防止后续的指令取指错误<br />
+这个问题的另一种解决方案是在取指的读类 sram 接口请求尚未完成时，暂停全部流水级，这种解决方案对性能的影响较小（无论是否暂停全部流水级，进入流水线的指令数都没有发生改变）同时也能够简化设计</p>
+<h2 id="cache_1">写回 cache<a class="headerlink" href="#cache_1" title="Permanent link">&para;</a></h2>
+<p>不同于写直达 cache，写回 cache 在接受写请求时将数据先写入 cache，并将该 cache 块标记为 dirty，当之后的某次请求需要覆盖该 cache 块时，再将脏块写回到内存中  </p>
+<p>我们需要注意，由于类 sram 接口支持字节和半字的读写，在向一个空 cache 块执行写半字或者写字节操作之前，我们需要提前将写操作地址对应的整个字先读入 cache，此后再将新数据写入该 cache 块，并将 cahce 块标记为 dirty<br />
+假设我们希望写入的是某个字的最低的字节，将该字表示为 <code>XXXXXXXX</code>，（<code>X</code>可能是任何十六进制数），如果我们不先将写操作对应的字读入，那么在我们向 cache 中写入数据（<code>AA</code>）后，该 cache 块为 <code>XXXXXXAA</code>，在后续写回该块时，我们会将高位的所有 <code>X</code> 写入内存中对应的位置，从而覆盖正确的数据，这显然是不可接受的<br />
+一般而言，如果需要对空 cache 块写入的数据大小 <strong>小于</strong> 一个 cache 块，我们都需要事先从内存中读入待写数据对应的块。在使用块单字时，如果写入一整个字，则不需要从内存中读入对应的块，但在使用块多字时，由于一次最多写一个字，故任何对空 cache 块的写操作都需要先把对应的 cache 块从内存中读出<br />
+为了简化设计，我们可以对任何针对空 cache 块的写操作都要求事先读入对应的块，这样会损失一定的性能，但是有助于简化写回 cache 的状态机设计</p>
+<h2 id="cache_2">写回 cache 的状态机设计<a class="headerlink" href="#cache_2" title="Permanent link">&para;</a></h2>
+<p>在了解了写回 cache 的基本工作流程后，我们可以设计出相应的状态机，写回 cache 可能处于以下几个状态：</p>
+<ul>
+<li>
+<p><code>IDLE</code>：等待请求</p>
+</li>
+<li>
+<p><code>WRIBK</code>：正在向内存写回数据</p>
+</li>
+<li>
+<p><code>READIN</code>：正在从内存读入数据</p>
+</li>
+<li>
+<p><code>FIN：cache</code> 读写完成  </p>
+</li>
+<li>
+<p>对于读 cache 请求，进入此状态待读数据出现在 cache 与数据通路交互的接口上</p>
+</li>
+<li>
+<p>对于写 cache 请求，进入此状态后的第一个时钟上升沿将数据写入 cache 块相应的位置</p>
+</li>
+</ul>
+<p>写回 cache 的状态转移流程：</p>
+<ul>
+<li>
+<p>初始为 <code>IDLE</code></p>
+</li>
+<li>
+<p>在来自数据通路的请求到达时，首先判断是否命中  </p>
+</li>
+<li>
+<p>如果命中，则直接执行 cache 内的读写操作，保持 <code>IDLE</code> 状态</p>
+</li>
+<li>
+<p>如果缺失，则判断需要覆盖的 cache 块是否有效且包含脏数据  </p>
+<ul>
+<li>
+<p>如果待覆盖的 cache 块无效或不包含脏数据，则转入 <code>READIN</code> 状态，从内存中读入数据</p>
+</li>
+<li>
+<p>如果待覆盖的 cache 块有效且包含脏数据，则转入 <code>WRBK</code> 状态，向内存写回数据，在完成写回后，转入 <code>READIN</code> 状态，从内存中读入数据</p>
+</li>
+<li>
+<p>在完成写回和读入后，进入 <code>FIN</code> 状态，完成 cache 读写，最后回到 IDLE 状态</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="_1"><a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月5日</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../sram_soc/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 封装SRAM-SOC" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              封装SRAM-SOC
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../ext/axi/" class="md-footer__link md-footer__link--next" aria-label="Next: AXI接口" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              AXI接口
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 College of Computer Science, Chongqing University.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56a63758.min.js"></script>
+      
+    
+  </body>
+</html>

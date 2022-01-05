@@ -1,0 +1,1119 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+    
+    
+      
+        <title>AXI接口 - 重庆大学硬件综合设计实验文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.be71726b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#axi" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="重庆大学硬件综合设计实验文档" class="md-header__button md-logo" aria-label="重庆大学硬件综合设计实验文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6V9z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            重庆大学硬件综合设计实验文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AXI接口
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cyyself/CO-lab-docs-CQU/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CO-lab-docs-CQU
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../env/vivado/" class="md-tabs__link">
+        环境配置
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../basic/lab4/" class="md-tabs__link">
+        基本任务
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        扩展实验
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tips/common/" class="md-tabs__link">
+        调试技巧
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="重庆大学硬件综合设计实验文档" class="md-nav__button md-logo" aria-label="重庆大学硬件综合设计实验文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6V9z"/></svg>
+
+    </a>
+    重庆大学硬件综合设计实验文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cyyself/CO-lab-docs-CQU/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CO-lab-docs-CQU
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        环境配置
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="环境配置" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          环境配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../env/vivado/" class="md-nav__link">
+        Vivado安装
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../env/resource/" class="md-nav__link">
+        实验资料包
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      <label class="md-nav__link" for="__nav_3">
+        基本任务
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基本任务" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          基本任务
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/lab4/" class="md-nav__link">
+        回顾计组实验四
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/extend_52/" class="md-nav__link">
+        扩展到52条指令
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/extend_57/" class="md-nav__link">
+        扩展到57条指令
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/sram_soc/" class="md-nav__link">
+        封装SRAM-SOC
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../basic/basic_cache/" class="md-nav__link">
+        基础Cache
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      <label class="md-nav__link" for="__nav_4">
+        扩展实验
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="扩展实验" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          扩展实验
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        AXI接口
+      </a>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../opt/" class="md-nav__link">
+        性能优化
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cache/" class="md-nav__link">
+        Cache
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mmu/" class="md-nav__link">
+        MMU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../os/" class="md-nav__link">
+        运行操作系统
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../la32/" class="md-nav__link">
+        LoongArch32
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        调试技巧
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="调试技巧" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          调试技巧
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/common/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/wave_debug/" class="md-nav__link">
+        使用波形图
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/git/" class="md-nav__link">
+        Git使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/disasm/" class="md-nav__link">
+        反汇编
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/cyyself/CO-lab-docs-CQU/edit/master/docs/ext/axi.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="axi">AXI接口<a class="headerlink" href="#axi" title="Permanent link">&para;</a></h1>
+<p>AXI 的全称为 Advanced eXtensible Interface，是 AMBA 总线架构中最新且性能最好的一个总线标准，AXI的设计目标是可以在高时钟频率下运行，并在延滞时间长的状况下仍可达成高数据吞吐率<br />
+AXI总线将读/写请求与读/写结果相互分离、将数据写入和数据读出的信号相分离，可以同时进行写入和读出动作，从而最大限度地提高总线的数据吞吐率<br />
+在嵌入式设备和 FPAG 中，AXI 接口经常会用于连接各种类型的设备<br />
+AXI 接口中参与数据传输的设备可以分为 Master 端和 Slave 端，我们可以借助 Interconnect 将多个 Master 和多个 Slave 互联起来：<br />
+<img alt="" src="../../img/AXI_Intreconnect.png" /></p>
+<p>注意，在上图中，多个 Slave 对整个寻址空间进行了划分，每个 Slave 所对应的寻址空间不重叠，读写操作会被分配到其地址对应的 Slave 设备上</p>
+<p>AXI 协议内容比较复杂，但是我们在实验中只会用到其中一部分，希望进一步了结 AXI 接口的同学可以查阅 AXI 接口的官方文档</p>
+<p>实验需要用到的 AXI 总线信号可以划大致分成 5 个通道：  </p>
+<ul>
+<li>
+<p>写地址通道，信号名称以 AW 开头</p>
+</li>
+<li>
+<p>写数据通道，信号名称以 W 开头</p>
+</li>
+<li>
+<p>写响应通道，信号名称以 R 开头</p>
+</li>
+<li>
+<p>读地址通道，信号名称以 AR 开头</p>
+</li>
+<li>
+<p>读数据操作，信号名称以 R 开头</p>
+</li>
+<li>
+<p>全局信号，包括时钟信号 ACLK，和 ARESETn，注意 ARESETn 是低电平有效</p>
+</li>
+</ul>
+<p>下面我们对各个通道内的信号进行逐一介绍：</p>
+<p>写地址通道：</p>
+<table>
+<thead>
+<tr>
+<th>信号名</th>
+<th>信号来源</th>
+<th>信号描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AWID[3:0]</td>
+<td>Master</td>
+<td>写事务的ID，可以直接置为0</td>
+</tr>
+<tr>
+<td>AWADDR[31:0]</td>
+<td>Master</td>
+<td>写请求的最低字节的地址</td>
+</tr>
+<tr>
+<td>AWLEN[3:0]</td>
+<td>Master</td>
+<td>写请求的 burst 长度，这个量表示在一次传输中进行的 burst 数量，注意 AWLEN 为0时表示进行一次 burst，以此类推</td>
+</tr>
+<tr>
+<td>AWSIZE[2:0]</td>
+<td>Master</td>
+<td>写请求的数据大小，这个信号表示在每次burst中发送的数据量，实验中我们一般每个 burst 传输4个字节，此时将这个字段置为 3'b010；如果需要访问单个字节，则置为 3'b000；访问半字则置为 3'b001</td>
+</tr>
+<tr>
+<td>AWBURST[1:0]</td>
+<td>Master</td>
+<td>burst的类型，实验中置为 2'b01 即可</td>
+</tr>
+<tr>
+<td>AWLOCK[1:0]</td>
+<td>Master</td>
+<td>加锁信号，实验中置为0</td>
+</tr>
+<tr>
+<td>AWCACHE[3:0]</td>
+<td>Master</td>
+<td>cache 类型，实验中置为0</td>
+</tr>
+<tr>
+<td>AWPROT[2:0]</td>
+<td>Master</td>
+<td>保护信号，实验中置为0</td>
+</tr>
+<tr>
+<td>AWVALID</td>
+<td>Master</td>
+<td>写数据地址有效信号，Master 端通过拉高该信号来发起一次写事务，该信号拉高表示 Master 端已将有效的请求参数（地址，burst 长度等）送到相应的端口上</td>
+</tr>
+<tr>
+<td>AWREADY</td>
+<td>Slave</td>
+<td>写数据地址就绪信号，表示 Slave 端已经准备好接受写事务的相关参数，在 AWVALID 和 AWREADY 同时为高的时钟上升沿，事务参数（地址，burst 长度等）的传输即发生</td>
+</tr>
+</tbody>
+</table>
+<p>写数据通道：</p>
+<table>
+<thead>
+<tr>
+<th>信号名</th>
+<th>信号来源</th>
+<th>信号描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>WID[3:0]</td>
+<td>Master</td>
+<td>写事务的ID，可以直接置为0</td>
+</tr>
+<tr>
+<td>WDATA[31:0]</td>
+<td>Master</td>
+<td>写事务的数据</td>
+</tr>
+<tr>
+<td>WSTRB[3:0]</td>
+<td>Master</td>
+<td>写字节使能，每一个bit代表4个字节中其中一位的使能信号，最低位对应低字节，最高位对应高字节</td>
+</tr>
+<tr>
+<td>WLAST</td>
+<td>Master</td>
+<td>burst 传输的结束信号，如果当前送到 WDATA 上的数据是最后一个 burst，则 Master 需要将该信号拉高，以表示 burst 传输结束</td>
+</tr>
+<tr>
+<td>WVALID</td>
+<td>Master</td>
+<td>写有效信号，表示当前 Master 已经将有效数据送到 WDATA 上</td>
+</tr>
+<tr>
+<td>WREADY</td>
+<td>Slave</td>
+<td>写就绪信号，当 Slave 端准备好接受写入数据时，拉高该端口，当 WVALID 和 WREADY 均为高的时钟上升沿到来时，数据传输即进行</td>
+</tr>
+</tbody>
+</table>
+<p>写响应通道：</p>
+<table>
+<thead>
+<tr>
+<th>信号名</th>
+<th>信号来源</th>
+<th>信号描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BID[3:0]</td>
+<td>Slave</td>
+<td>写事务响应的ID，可以忽略</td>
+</tr>
+<tr>
+<td>BRESP[1:0]</td>
+<td>Slave</td>
+<td>写事务的响应，可能包括 OKAY，EXOKAY，SLVERR，和 DECRERR，实验中我们一般只关心 OKAY 响应的到来</td>
+</tr>
+<tr>
+<td>BVALID</td>
+<td>Slave</td>
+<td>写响应有效信号，当 Slave 已经将有效的响应内容放到 BRESP 上时，将该信号拉高</td>
+</tr>
+<tr>
+<td>BREADY</td>
+<td>Master</td>
+<td>写响应就绪信号，当 Master 端准备好接受写响应时，将该信号拉高，当 BVALID 和 BREADY 同时为高的时钟上升沿到来时，响应的传输即发生</td>
+</tr>
+</tbody>
+</table>
+<p>BRESP 和编码为：  </p>
+<ul>
+<li>
+<p>OKAY: 2'b00</p>
+</li>
+<li>
+<p>EXOKAY: 2'b01</p>
+</li>
+<li>
+<p>SLVERR: 2'b10</p>
+</li>
+<li>
+<p>DECRERR: 2'b11</p>
+</li>
+</ul>
+<p>读地址通道：</p>
+<table>
+<thead>
+<tr>
+<th>信号名</th>
+<th>信号来源</th>
+<th>信号描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ARID[3:0]</td>
+<td>Master</td>
+<td>读事务的ID，可以直接置为0</td>
+</tr>
+<tr>
+<td>ARADDR[31:0]</td>
+<td>Master</td>
+<td>读请求的最低字节的地址</td>
+</tr>
+<tr>
+<td>ARLEN[3:0]</td>
+<td>Master</td>
+<td>读请求的 burst 长度，这个量表示在一次传输中进行的 burst 数量，注意 ARLEN 为0时表示进行一次 burst，以此类推</td>
+</tr>
+<tr>
+<td>ARSIZE[2:0]</td>
+<td>Master</td>
+<td>读请求的数据大小，这个信号表示在每次 burst 中发送的数据量，实验中我们一般每个 burst 传输4个字节，此时将这个字段置为 3'b010；如果需要访问单个字节，则置为 3'b000；访问半字则置为 3'b001</td>
+</tr>
+<tr>
+<td>ARBURST[1:0]</td>
+<td>Master</td>
+<td>burst 的类型，实验中置为 2'b01 即可</td>
+</tr>
+<tr>
+<td>ARLOCK[1:0]</td>
+<td>Master</td>
+<td>加锁信号，实验中置为0</td>
+</tr>
+<tr>
+<td>ARCACHE[3:0]</td>
+<td>Master</td>
+<td>cache 类型，实验中置为0</td>
+</tr>
+<tr>
+<td>ARPROT[2:0]</td>
+<td>Master</td>
+<td>保护信号，实验中置为0</td>
+</tr>
+<tr>
+<td>ARVALID</td>
+<td>Master</td>
+<td>读数据地址有效信号，Master 端通过拉高该信号来发起一次读事务，该信号拉高表示 Master 端已将有效的请求参数（地址，burst 长度等）送到相应的端口上</td>
+</tr>
+<tr>
+<td>ARREADY</td>
+<td>Slave</td>
+<td>读数据地址就绪信号，表示 Slave 端已经准备好接受读事务的相关参数，在 AWVALID 和 AWREADY 同时为高的时钟上升沿，事务参数（地址，burst 长度等）的传输即发生</td>
+</tr>
+</tbody>
+</table>
+<p>读数据通道：</p>
+<table>
+<thead>
+<tr>
+<th>信号名</th>
+<th>信号来源</th>
+<th>信号描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RID[3:0]</td>
+<td>Slave</td>
+<td>读事务数据的ID，可以忽略</td>
+</tr>
+<tr>
+<td>RDATA[31:0]</td>
+<td>Slave</td>
+<td>读事务的数据</td>
+</tr>
+<tr>
+<td>RLAST</td>
+<td>Slave</td>
+<td>burst 传输的结束信号，如果当前送到 RDATA 上的数据是最后一个 burst，则 Slave 需要将该信号拉高，以表示 burst 传输结束</td>
+</tr>
+<tr>
+<td>RVALID</td>
+<td>Slave</td>
+<td>读有效信号，表示当前 Slave 已经将有效数据送到 RDATA 上</td>
+</tr>
+<tr>
+<td>RREADY</td>
+<td>Master</td>
+<td>读就绪信号，当 Master 端准备好接受读入数据时，拉高该端口，当 RVALID 和 RREADY 均为高的时钟上升沿到来时，数据传输即进行</td>
+</tr>
+</tbody>
+</table>
+<p>以上是我们实验中需要用到的 AXI 接口信号的概述，接下来我们简单描述一下 AXI 接口双向握手的流程<br />
+AXI 接口的每个通道都有一对 VALID 信号 和 READY 信号，分别表示数据发送方是否已经准备好数据，以及接收方是否可以接收数据，在这一对信号同时为高的时钟上升沿，信息（数据或者地址等）的传递将会发生<br />
+VALID 和 READY 信号拉高的先后顺序并没有明确的要求，二者也可以同时拉高</p>
+<ul>
+<li>
+<p>VALID before READY<br />
+<img alt="" src="../../img/axi_valid_before_ready.svg" /></p>
+</li>
+<li>
+<p>READY before VALID<br />
+<img alt="" src="../../img/axi_ready_before_valid.svg" /></p>
+</li>
+<li>
+<p>READY with VALID<br />
+<img alt="" src="../../img/axi_ready_with_valid.svg" /></p>
+</li>
+</ul>
+<p>以上三种情形中，信息的传输都发生在标号为 4 的时钟上升沿处</p>
+<p>下面我们简述 AXI 写事务的流程</p>
+<ul>
+<li>
+<p>Master 将该次写事务相关的参数（地址，burst 长度，单次 burst 写数据的大小等）放到相应的信号端口上，同时拉高 AWVALID</p>
+</li>
+<li>
+<p>Slave 在接下来某个时间将 AWRAEDY 拉高，在 AWREADY 和 AWVALID 同时为高的第一个时钟上升沿将该次写事务的参数存储起来，此时地址握手完成</p>
+</li>
+<li>
+<p>Slave 端处写请求，等待外部存储器准备就绪</p>
+</li>
+<li>
+<p>当可以写数据时，Slave 拉高 WREADY 信号</p>
+</li>
+<li>
+<p>Master 端在决定写入数据时拉高 WVALID 信号，每当 WREADY 和 WVALID 同时为高的上升沿到来时，写事务进行一次数据传输（取决于 burst 长度，可能发生多次数据传输，这些 burst 有可能不是连续发生的）</p>
+</li>
+<li>
+<p>当最后一个 burst 的数据出现在 WDATA 上时，Master 端将 WLAST 拉高</p>
+</li>
+<li>
+<p>在最后一个 burst 完成后，Master 开始等待 Slave 返回写数据的结果</p>
+</li>
+<li>
+<p>Slave 在写事务的结果准备好后拉高 BVALID，Master 在决定接收写事务结果时拉高 BREADY，在 BVALID 和 BREADY 同时为高的时钟上升沿进行写事务结果的传输</p>
+</li>
+<li>
+<p>写事务的结果传输完成后，该次写事务宣告结束</p>
+</li>
+</ul>
+<p><img alt="" src="../../img/axi_write_burst.png" /></p>
+<p>AXI 读事务的流程：</p>
+<ul>
+<li>
+<p>Master 将该次读事务相关的参数（地址，burst 长度，单次 burst 读数据的大小等）放到相应的信号端口上，同时拉高 ARVALID</p>
+</li>
+<li>
+<p>Slave 在接下来某个时间将 ARRAEDY 拉高，在 ARREADY 和 ARVALID 同时为高的第一个时钟上升沿将该次读事务的参数存储起来，此时地址握手完成</p>
+</li>
+<li>
+<p>Slave 端处理读请求，从外部存储器准备数据的读取</p>
+</li>
+<li>
+<p>当读取数据准备就绪时，Slave 拉高 RVALID 信号</p>
+</li>
+<li>
+<p>Master 端在决定读取数据时拉高 RREADY 信号，每当 RREADY 和 RVALID 同时为高的上升沿到来时，读事务进行一次数据传输（取决于 burst 长度，可能发生多次数据传输，这些 burst 有可能不是连续发生的）</p>
+</li>
+<li>
+<p>当最后一个 burst 的数据出现在 RDATA 上时，Slave 端将 RLAST 拉高</p>
+</li>
+<li>
+<p>在读取到最后一个 burst 的数据之后，该次读事务宣告结束</p>
+</li>
+</ul>
+<p><img alt="" src="../../img/axi_read_burst.png" /></p>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月5日</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../../basic/basic_cache/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 基础Cache" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              基础Cache
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../opt/" class="md-footer__link md-footer__link--next" aria-label="Next: 性能优化" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              性能优化
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 College of Computer Science, Chongqing University.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56a63758.min.js"></script>
+      
+    
+  </body>
+</html>

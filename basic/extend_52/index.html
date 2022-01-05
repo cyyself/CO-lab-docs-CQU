@@ -1,0 +1,1989 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.2, mkdocs-material-7.2.5">
+    
+    
+      
+        <title>扩展到52条指令 - 重庆大学硬件综合设计实验文档</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.be71726b.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#52" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="重庆大学硬件综合设计实验文档" class="md-header__button md-logo" aria-label="重庆大学硬件综合设计实验文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6V9z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            重庆大学硬件综合设计实验文档
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              扩展到52条指令
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/cyyself/CO-lab-docs-CQU/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CO-lab-docs-CQU
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      主页
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../env/vivado/" class="md-tabs__link">
+        环境配置
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../lab4/" class="md-tabs__link md-tabs__link--active">
+        基本任务
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ext/axi/" class="md-tabs__link">
+        扩展实验
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../tips/common/" class="md-tabs__link">
+        调试技巧
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="重庆大学硬件综合设计实验文档" class="md-nav__button md-logo" aria-label="重庆大学硬件综合设计实验文档" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 17H7V7h10m4 4V9h-2V7a2 2 0 0 0-2-2h-2V3h-2v2h-2V3H9v2H7c-1.11 0-2 .89-2 2v2H3v2h2v2H3v2h2v2a2 2 0 0 0 2 2h2v2h2v-2h2v2h2v-2h2a2 2 0 0 0 2-2v-2h2v-2h-2v-2m-6 2h-2v-2h2m2-2H9v6h6V9z"/></svg>
+
+    </a>
+    重庆大学硬件综合设计实验文档
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/cyyself/CO-lab-docs-CQU/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    CO-lab-docs-CQU
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        主页
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        环境配置
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="环境配置" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          环境配置
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../env/vivado/" class="md-nav__link">
+        Vivado安装
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../env/resource/" class="md-nav__link">
+        实验资料包
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        基本任务
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="基本任务" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          基本任务
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab4/" class="md-nav__link">
+        回顾计组实验四
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          扩展到52条指令
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        扩展到52条指令
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    指令添加的一般步骤
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8条逻辑运算指令
+  </a>
+  
+    <nav class="md-nav" aria-label="8条逻辑运算指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#andi-ori-xori-lui" class="md-nav__link">
+    立即数ANDI ORI XORI LUI
+  </a>
+  
+    <nav class="md-nav" aria-label="立即数ANDI ORI XORI LUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    数据通路调整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    控制信号调整
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#and-or-xor-nor" class="md-nav__link">
+    普通逻辑运算 AND OR XOR NOR
+  </a>
+  
+    <nav class="md-nav" aria-label="普通逻辑运算 AND OR XOR NOR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    数据通路调整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    控制信号调整
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6条移位运算指令
+  </a>
+  
+    <nav class="md-nav" aria-label="6条移位运算指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sll-srl-sra" class="md-nav__link">
+    立即数移位运算 SLL SRL SRA
+  </a>
+  
+    <nav class="md-nav" aria-label="立即数移位运算 SLL SRL SRA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    数据通路调整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    控制信号调整
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sllv-srlv-srav" class="md-nav__link">
+    变量移位运算SLLV SRLV SRAV
+  </a>
+  
+    <nav class="md-nav" aria-label="变量移位运算SLLV SRLV SRAV">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    数据通路调整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    控制信号调整
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hilo" class="md-nav__link">
+    数据移动指令与HILO寄存器
+  </a>
+  
+    <nav class="md-nav" aria-label="数据移动指令与HILO寄存器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hilo_1" class="md-nav__link">
+    HILO寄存器是什么？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    可能要调整的数据通路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    可能要调整的控制信号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    推荐的做法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    14条算术
+  </a>
+  
+    <nav class="md-nav" aria-label="14条算术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    数据通路复用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    乘法的实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    除法的实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    12条转移
+  </a>
+  
+    <nav class="md-nav" aria-label="12条转移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bnebgezbgtzblezbltz" class="md-nav__link">
+    BNE、BGEZ、BGTZ、BLEZ、BLTZ的添加
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jr" class="md-nav__link">
+    JR的添加
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link" class="md-nav__link">
+    Link类指令添加
+  </a>
+  
+    <nav class="md-nav" aria-label="Link类指令添加">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jal" class="md-nav__link">
+    JAL指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jalr" class="md-nav__link">
+    JALR指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bltzalbgezal" class="md-nav__link">
+    BLTZAL和BGEZAL指令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8_1" class="md-nav__link">
+    8条访存
+  </a>
+  
+    <nav class="md-nav" aria-label="8条访存">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load" class="md-nav__link">
+    Load类指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store" class="md-nav__link">
+    Store类指令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../extend_57/" class="md-nav__link">
+        扩展到57条指令
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sram_soc/" class="md-nav__link">
+        封装SRAM-SOC
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../basic_cache/" class="md-nav__link">
+        基础Cache
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        扩展实验
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="扩展实验" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          扩展实验
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/axi/" class="md-nav__link">
+        AXI接口
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/opt/" class="md-nav__link">
+        性能优化
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/cache/" class="md-nav__link">
+        Cache
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/mmu/" class="md-nav__link">
+        MMU
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/os/" class="md-nav__link">
+        运行操作系统
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ext/la32/" class="md-nav__link">
+        LoongArch32
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      <label class="md-nav__link" for="__nav_5">
+        调试技巧
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="调试技巧" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          调试技巧
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/common/" class="md-nav__link">
+        常见问题
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/wave_debug/" class="md-nav__link">
+        使用波形图
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/git/" class="md-nav__link">
+        Git使用
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tips/disasm/" class="md-nav__link">
+        反汇编
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    指令添加的一般步骤
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8条逻辑运算指令
+  </a>
+  
+    <nav class="md-nav" aria-label="8条逻辑运算指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#andi-ori-xori-lui" class="md-nav__link">
+    立即数ANDI ORI XORI LUI
+  </a>
+  
+    <nav class="md-nav" aria-label="立即数ANDI ORI XORI LUI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    数据通路调整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    控制信号调整
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#and-or-xor-nor" class="md-nav__link">
+    普通逻辑运算 AND OR XOR NOR
+  </a>
+  
+    <nav class="md-nav" aria-label="普通逻辑运算 AND OR XOR NOR">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    数据通路调整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    控制信号调整
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    6条移位运算指令
+  </a>
+  
+    <nav class="md-nav" aria-label="6条移位运算指令">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sll-srl-sra" class="md-nav__link">
+    立即数移位运算 SLL SRL SRA
+  </a>
+  
+    <nav class="md-nav" aria-label="立即数移位运算 SLL SRL SRA">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    数据通路调整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    控制信号调整
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sllv-srlv-srav" class="md-nav__link">
+    变量移位运算SLLV SRLV SRAV
+  </a>
+  
+    <nav class="md-nav" aria-label="变量移位运算SLLV SRLV SRAV">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    数据通路调整
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    控制信号调整
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hilo" class="md-nav__link">
+    数据移动指令与HILO寄存器
+  </a>
+  
+    <nav class="md-nav" aria-label="数据移动指令与HILO寄存器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hilo_1" class="md-nav__link">
+    HILO寄存器是什么？
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    可能要调整的数据通路
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    可能要调整的控制信号
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    推荐的做法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    14条算术
+  </a>
+  
+    <nav class="md-nav" aria-label="14条算术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    数据通路复用
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    乘法的实现
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    除法的实现
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    12条转移
+  </a>
+  
+    <nav class="md-nav" aria-label="12条转移">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bnebgezbgtzblezbltz" class="md-nav__link">
+    BNE、BGEZ、BGTZ、BLEZ、BLTZ的添加
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jr" class="md-nav__link">
+    JR的添加
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#link" class="md-nav__link">
+    Link类指令添加
+  </a>
+  
+    <nav class="md-nav" aria-label="Link类指令添加">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jal" class="md-nav__link">
+    JAL指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jalr" class="md-nav__link">
+    JALR指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bltzalbgezal" class="md-nav__link">
+    BLTZAL和BGEZAL指令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8_1" class="md-nav__link">
+    8条访存
+  </a>
+  
+    <nav class="md-nav" aria-label="8条访存">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    指令功能
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load" class="md-nav__link">
+    Load类指令
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#store" class="md-nav__link">
+    Store类指令
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/cyyself/CO-lab-docs-CQU/edit/master/docs/basic/extend_52.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="52">扩展到52条指令<a class="headerlink" href="#52" title="Permanent link">&para;</a></h1>
+<h2 id="_1">指令添加的一般步骤<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>RTFM（Read The Friendly Manual）<ul>
+<li>认真阅读指令系统规范等相关 <strong>文档</strong> ，理解指令的功能。</li>
+<li>对功能进行分解，明确指令的操作及操作对象。</li>
+<li>注意细节，例如立即数是零扩展还是符号扩展。</li>
+</ul>
+</li>
+<li><strong>数据通路</strong> 的设计调整<ul>
+<li>根据指令的功能定义考虑所涉及的数据通路，需要哪些信号，如何处理。</li>
+<li>能复用的通路就复用，不能的就新增。</li>
+</ul>
+</li>
+<li><strong>控制信号</strong> 的调整<ul>
+<li>新的数据通路涉及到的新的信号和多选器等，则用控制信号来选择。</li>
+<li>如果有新的行为，需要在译码阶段定义新的控制信号，例如HI、LO寄存器的写信号。</li>
+</ul>
+</li>
+</ul>
+<h2 id="8">8条逻辑运算指令<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<p><img alt="sram_soc_1" src="../../img/extend52_1.png" /></p>
+<h3 id="andi-ori-xori-lui">立即数ANDI ORI XORI LUI<a class="headerlink" href="#andi-ori-xori-lui" title="Permanent link">&para;</a></h3>
+<h4 id="_2">指令功能<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h4>
+<ul>
+<li>ANDI ORI XORI：寄存器 rs 中的值与 0 扩展至 32 位的立即数 imm 按位逻辑运算，结果写入寄存器 rt 中。</li>
+<li>LUI：将 16 位立即数 imm 写入寄存器 rt 的高 16 位，寄存器 rt 的低 16 位置 0。 </li>
+</ul>
+<h4 id="_3">数据通路调整<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h4>
+<ul>
+<li>
+<p>重点处理imm为0扩展至 32 位，其余功能数据通路已实现（推荐方法②，较为规范）</p>
+<ol>
+<li>方法①：可以在ALU计算中将有符号扩展的结果修改为无符号的扩展，即<code>{ {16{1'b0}} ,num2[15:0]}</code></li>
+<li>方法②：修改原有符号扩展模块为数据扩展模块，判断为立即数时在此模块中无符号扩展<code>{ {16{1'b0}} ,num2[15:0]}</code>，有符号扩展保持不变</li>
+</ol>
+</li>
+<li>
+<p><em>注意：</em> 无符号有符号扩展对LUI指令都无影响，其只需要低16位的值，在ALU做处理即可</p>
+</li>
+</ul>
+<h4 id="_4">控制信号调整<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h4>
+<ul>
+<li>关注立即数时寄存器堆的写数据的选择信号</li>
+<li>关注alu的输入的第二个数据为扩展模块结果</li>
+</ul>
+<h3 id="and-or-xor-nor">普通逻辑运算 AND OR XOR NOR<a class="headerlink" href="#and-or-xor-nor" title="Permanent link">&para;</a></h3>
+<h4 id="_5">指令功能<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h4>
+<ul>
+<li>寄存器 rs 中的值与寄存器 rt 中的值按位逻辑运算，结果写入寄存器 rd 中。 </li>
+</ul>
+<h4 id="_6">数据通路调整<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h4>
+<ul>
+<li>数据通路与计组Lab4相同，无需调整</li>
+</ul>
+<h4 id="_7">控制信号调整<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h4>
+<ul>
+<li>数据通路与计组Lab4相同，无需调整</li>
+</ul>
+<h2 id="6">6条移位运算指令<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
+<p><img alt="sram_soc_1" src="../../img/extend52_2.png" /></p>
+<h3 id="sll-srl-sra">立即数移位运算 SLL SRL SRA<a class="headerlink" href="#sll-srl-sra" title="Permanent link">&para;</a></h3>
+<h4 id="_8">指令功能<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h4>
+<ul>
+<li>SLL SRL: 由立即数 sa 指定移位量，对寄存器 rt 的值进行逻辑移位，结果写入寄存器 rd 中。 </li>
+<li>SRA：由立即数 sa 指定移位量，对寄存器 rt 的值进行算术右移（即左边补上符号位），结果写入寄存器 rd 中。</li>
+</ul>
+<h4 id="_9">数据通路调整<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h4>
+<ul>
+<li>新增sa信号，从指令的[10:6]位直接连入ALU中</li>
+</ul>
+<h4 id="_10">控制信号调整<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<ul>
+<li>数据通路与计组Lab4相同，无需调整</li>
+</ul>
+<h3 id="sllv-srlv-srav">变量移位运算SLLV SRLV SRAV<a class="headerlink" href="#sllv-srlv-srav" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<h4 id="_11">指令功能<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+</li>
+<li>
+<p>由寄存器 rs 中的值指定移位量，对寄存器 rt 的值进行逻辑移位，结果写入寄存器 rd 中。 </p>
+</li>
+<li>
+<h4 id="_12">数据通路调整<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h4>
+</li>
+<li>
+<p>数据通路与计组Lab4相同，无需调整</p>
+</li>
+<li>
+<h4 id="_13">控制信号调整<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h4>
+</li>
+<li>
+<p>数据通路与计组Lab4相同，无需调整</p>
+</li>
+</ul>
+<h2 id="hilo">数据移动指令与HILO寄存器<a class="headerlink" href="#hilo" title="Permanent link">&para;</a></h2>
+<h3 id="hilo_1">HILO寄存器是什么？<a class="headerlink" href="#hilo_1" title="Permanent link">&para;</a></h3>
+<p>MIPS架构中，除了我们在LAB4中已经实现的Regfile包含32个通用寄存器外，还有两个特殊的寄存器——HI与LO。这是因为在乘除法计算中，两个32位的数相乘结果为64位，而除法的时候，除了商以外，还存在余数。因此为了避免32位通用寄存器存不下这些数的问题，MIPS架构使用了额外的HI、LO寄存器来完成乘除法运算。</p>
+<h3 id="_14">指令功能<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>指令名称格式</th>
+<th>指令功能简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MFHI rd</td>
+<td>HI寄存器→通用寄存器</td>
+</tr>
+<tr>
+<td>MFLO rd</td>
+<td>LO寄存器→通用寄存器</td>
+</tr>
+<tr>
+<td>MTHI rs</td>
+<td>通用寄存器→HI寄存器</td>
+</tr>
+<tr>
+<td>MTLO rs</td>
+<td>通用寄存器→LO寄存器</td>
+</tr>
+</tbody>
+</table>
+<p>MFXX类型将HI、LO寄存器中的值写入到通用寄存器，MTXX类型将通用寄存器中的值写入到HI、LO寄存器中。</p>
+<h3 id="_15">可能要调整的数据通路<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p>从寄存器堆或HI、LO寄存器中读出数据后，沿着流水线向后传递，中间不需要做额外的运算，最终写入对应的寄存器中。</p>
+<p>需要在计组实验四的基础上增加HI、LO寄存器模块。</p>
+<p>需要在寄存器堆和HI、LO寄存器之间新增数据通路。</p>
+<h3 id="_16">可能要调整的控制信号<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>新增HI、LO寄存器的写信号。</p>
+<p>寄存器堆的写数据的选择信号等。</p>
+<h3 id="_17">推荐的做法<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>对于五级流水处理器，可以考虑放在EX阶段或MEM阶段写，大多数情况下，乘除法指令后面都会接MFLO指令，需考虑Hazard效率。</p>
+<h2 id="14">14条算术<a class="headerlink" href="#14" title="Permanent link">&para;</a></h2>
+<h3 id="_18">指令功能<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>指令名称格式</th>
+<th>指令功能简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADD rd, rs, rt</td>
+<td>加（可产生溢出例外）</td>
+</tr>
+<tr>
+<td>ADDU rd, rs, rt</td>
+<td>加（不产生溢出例外）</td>
+</tr>
+<tr>
+<td>ADDI rt, rs, immediate</td>
+<td>加立即数（可产生溢出例外）</td>
+</tr>
+<tr>
+<td>ADDIU rt, rs, immeidate</td>
+<td>加立即数（不产生溢出例外）</td>
+</tr>
+<tr>
+<td>SUB rd, rs, rt</td>
+<td>减（可产生溢出例外）</td>
+</tr>
+<tr>
+<td>SUBU rd, rs, rt</td>
+<td>减（不产生溢出例外）</td>
+</tr>
+<tr>
+<td>ST rd, rs, rt</td>
+<td>有符号小于置1</td>
+</tr>
+<tr>
+<td>SLTU rd, rs, rt</td>
+<td>无符号小于设置1</td>
+</tr>
+<tr>
+<td>SLTI rt, rs, immediate</td>
+<td>有符号小于立即数设置1</td>
+</tr>
+<tr>
+<td>SLTIU rt, rs, immediate</td>
+<td>无符号小于立即数口设置1</td>
+</tr>
+<tr>
+<td>DIV rs, rt</td>
+<td>有符号字除</td>
+</tr>
+<tr>
+<td>DIVU rs,rt</td>
+<td>无符号字除</td>
+</tr>
+<tr>
+<td>MULT rs, it</td>
+<td>有符号字乘</td>
+</tr>
+<tr>
+<td>MULTU rs, rt</td>
+<td>无符号字乘</td>
+</tr>
+</tbody>
+</table>
+<p>在扩展到52条指令时，可以先暂不考虑溢出和除零等例外。</p>
+<p>可以将这14条指令两两分组，ADD和ADDU、ADDI和ADDIU、SUB和SUBU、SLT和SLTU、SLTI和SLTIU、DIV和DIVU、MULT和MULTU</p>
+<ul>
+<li>每一组中的两条指令的功能是完全一样的，唯一的区别在于操作数是看成有符号还是无符号。这意味着在数据通路设计方面，可以复用一些已有的通路。</li>
+<li>如果将ALU看成一个黑盒，那么不同组指令执行的操作是完全一样的，都是从寄存器或立即数中取得源操作数，送入ALU中进行运算，然后将结果写回rd或rt寄存器中，所以区别仅在于ALU内部执行的操作。</li>
+</ul>
+<h3 id="_19">数据通路复用<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<ul>
+<li>R-Type（ADD和ADDU、SUB和SUBU、SLT和SLTU）<ul>
+<li>它们都是从rs、rt寄存器中读出源操作数，送到ALU中进行运算，然后将结果写回到 <strong>rd寄存器</strong> 中。</li>
+<li>区别仅在于ALU中执行的运算不同，需要在ALU原有基础上增加对应的无符号版本运算。</li>
+<li>除了ALU的控制信号不同，新增的ADDU、SUBU、SLTU指令的控制信号分别与原有的ADD、SUB、SLT指令的其他控制信号相同。</li>
+</ul>
+</li>
+<li>I-Type（ADDI和ADDIU、SLTI和SLTIU）<ul>
+<li>它们都是从rs寄存器和 <strong>立即数</strong> 中获得源操作数，送到ALU中进行运算，然后将结果写回到 <strong>rt寄存器</strong> 中。</li>
+<li>区别仅在于ALU中执行的运算不同，需要在ALU原有基础上增加对应的无符号版本运算。</li>
+<li>除了ALU控制信号的不同，新增的ADDIU指令的控制信号与原有的ADDI指令的控制信号相同。</li>
+<li>对比SLTI和ADDI指令，二者仅在ALU中的运算有区别，所以除了ALU的控制信号不同之外，其余的可以复用。</li>
+</ul>
+</li>
+</ul>
+<h3 id="_20">乘法的实现<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>使用Verilog中的乘号（100MHz及以下推荐）</p>
+<div class="highlight"><pre><span></span><code><span class="no">`ALU_UNSINGED_MULT</span><span class="o">:</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="p">{</span><span class="mh">32</span><span class="mb">&#39;b0</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">}</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">{</span><span class="mh">32</span><span class="mb">&#39;b0</span><span class="p">,</span><span class="w"> </span><span class="n">b</span><span class="p">};</span><span class="w"></span>
+<span class="no">`ALU_SINGED_MULT</span><span class="o">:</span><span class="w">   </span><span class="n">y</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">$signed</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">$signed</span><span class="p">(</span><span class="n">b</span><span class="p">);</span><span class="w"></span>
+</code></pre></div>
+<ul>
+<li>不考虑性能，为了简单可以使用。</li>
+</ul>
+</li>
+<li>
+<p>调用Xilinx IP——Multiplier（推荐）
+    <img alt="乘法器" src="../../img/%E4%B9%98%E6%B3%95%E5%99%A8.png" /></p>
+<ul>
+<li>流水级数可以配置。</li>
+<li>使用FPGA专门的资源，时序较好。</li>
+<li>有详细的文档。</li>
+</ul>
+</li>
+<li>
+<p>自己实现乘法器（推荐）</p>
+<ul>
+<li>乘除法可以统一为一个模块</li>
+<li>对接比较简单</li>
+</ul>
+</li>
+<li>
+<p>乘法结果</p>
+<ul>
+<li><code>rs</code>*<code>rt</code>的低32位和高32位分别写入<code>LO 寄存器</code>和<code>HI 寄存器</code>。</li>
+</ul>
+</li>
+</ul>
+<h3 id="_21">除法的实现<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<ul>
+<li>使用Verilog中的除号（极不推荐）</li>
+<li>使用《自己动手写CPU》中的除法器（推荐）<ul>
+<li>需要观察该除法器的输入输出时序</li>
+</ul>
+</li>
+<li>调用Xilinx IP——divider generator（推荐）<ul>
+<li>文档较长，有50页左右</li>
+</ul>
+</li>
+<li>自己实现（推荐）<ul>
+<li>灵活度最高</li>
+<li>对接较容易</li>
+</ul>
+</li>
+<li>除法结果<ul>
+<li><code>rs</code>/<code>rt</code>的值存入<code>LO寄存器</code>，<code>rs</code>%<code>rt</code>的值存入<code>HI寄存器</code>。</li>
+</ul>
+</li>
+</ul>
+<h2 id="12">12条转移<a class="headerlink" href="#12" title="Permanent link">&para;</a></h2>
+<h3 id="_22">指令功能<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>指令名称格式</th>
+<th>指令功能简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BEQ rs, rt, offset</td>
+<td>相等转移</td>
+</tr>
+<tr>
+<td>BNE rs, rt, offset</td>
+<td>不等转移</td>
+</tr>
+<tr>
+<td>BGEZ rs, offset</td>
+<td>大于等于0转移</td>
+</tr>
+<tr>
+<td>BGTZ rs, offset</td>
+<td>大于0转移</td>
+</tr>
+<tr>
+<td>BLEZ rs, offset</td>
+<td>小于等于0转移</td>
+</tr>
+<tr>
+<td>BLTZ rs, offset</td>
+<td>小于0转移</td>
+</tr>
+<tr>
+<td>BLTZAL rs, offset</td>
+<td>小于0调用子程序并保存返回地址</td>
+</tr>
+<tr>
+<td>BGEZAL rs, offset</td>
+<td>大于等于0调用子程序并保存返回地址</td>
+</tr>
+<tr>
+<td>J target</td>
+<td>无条件直接跳转</td>
+</tr>
+<tr>
+<td>JAL target</td>
+<td>无条件直接跳转至子程序并保存返回地址</td>
+</tr>
+<tr>
+<td>JR rs</td>
+<td>无条件寄存器跳转</td>
+</tr>
+<tr>
+<td>JALR rd, rs</td>
+<td>无条件寄存器跳转至子程序并保存返回地址</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>分支（branch）指令需要判断条件是否满足，跳转目标是 <strong>延迟槽指令</strong> PC加上立即数偏移量。</li>
+<li>跳转（jump）指令一定转移，跳转目标是 <strong>延迟槽指令</strong> PC与立即数或寄存器值拼接而成。</li>
+<li>特殊类型：BLTZAL、BGEZAL、JAL、JALR。这四条Link类指令除了要执行转移操作，还要将 <strong>延迟槽指令之后</strong> 一条指令的PC（ <strong>PC+8</strong> ）保存到寄存器中。前三条指令都是保存到 <strong>31号</strong> 寄存器中，JALR指令则是保存到 <strong>第rd项</strong> 寄存器。</li>
+</ul>
+<h3 id="bnebgezbgtzblezbltz">BNE、BGEZ、BGTZ、BLEZ、BLTZ的添加<a class="headerlink" href="#bnebgezbgtzblezbltz" title="Permanent link">&para;</a></h3>
+<ul>
+<li>这5条指令功能和BEQ类似，区别在于它们判断是否跳转的方式不一样</li>
+<li>数据通路方面，只需要对生成是否跳转信号的逻辑进行扩展即可，其余功能可直接复用BEQ的通路。</li>
+<li>控制信号方面，要分别生成对应的控制信号，用于控制比较逻辑，可参照BEQ指令。</li>
+</ul>
+<h3 id="jr">JR的添加<a class="headerlink" href="#jr" title="Permanent link">&para;</a></h3>
+<ul>
+<li>JR指令的功能与J指令完全相同，都是无条件跳转到目标地址，区别在于JR指令的跳转目标地址来自通用寄存器堆的第rs项。</li>
+<li>数据通路只需新增寄存器堆的rdata1端口连接到生成下一个PC的多选器的输入。</li>
+<li>要添加新的控制信号，用于控制下一个PC的选择。</li>
+</ul>
+<h3 id="link">Link类指令添加<a class="headerlink" href="#link" title="Permanent link">&para;</a></h3>
+<ul>
+<li>功能分解<ul>
+<li>Link类跳转指令可以拆分为两个部分，一个是跳转，即下一个PC的生成，如果将分支条件的比较放到译码级来进行，则这部分只涉及取值级和译码级流水；另一个是Link操作，简单来说就是写寄存器，这部则主要涉及到执行级、访存级、写回级。</li>
+</ul>
+</li>
+<li>Link操作<ul>
+<li>高级语言中的函数调用会引入call和return两个跳转。call跳转到被调函数的入口，return回跳到调用点后面的那条指令。由于一个函数可能会在多个地方被调用，因此return对应的回跳目标是无法静态确定的，只能在动态执行的过程中确定。</li>
+<li>通过带“Link”操作的跳转指令来完成call操作，跳转中的Link操作会将该跳转的延迟槽指令的PC加4（ <strong>PC+8</strong> ）写入一个通用寄存器，也就是说这个调用点对应的返回地址被写入一个通用寄存器中。</li>
+<li>要完成return跳转的功能，只需要将call操作写入的通用寄存器中的值取出，作为跳转目标地址完成跳转就可以了。具体来说就是使用间接跳转指令，如JR指令来完成。</li>
+</ul>
+</li>
+</ul>
+<h4 id="jal">JAL指令<a class="headerlink" href="#jal" title="Permanent link">&para;</a></h4>
+<ul>
+<li>根据指令规范文档可知，JAL指令完成跳转目标地址的生成，并将PC+8写入到 <strong>31号</strong> 寄存器中。跳转这部分功能可以复用J指令的数据通路，而保存返回地址的操作在原有的基础上无法完成，需要增加新的数据通路。</li>
+<li>
+<p>写寄存器涉及到写端口的地址和写数据，所以对于写地址，需要调整通用寄存器堆写端口的地址输入waddr的生成逻辑，增加一个固定数值31作为新的输入；而对于写数据，需要得到PC+8，可以复用ALU的加法器，只不过第一个源操作数原来是仅来自寄存器堆的第一个输出端口，需要添加一个二选一部件，使其可以选择PC作为第一个源操作数，第二个需要将原有的二选一部件调整为三选一部件，8作为第三个输入。</p>
+</li>
+<li>
+<p><div align="center"><img alt="JAL的添加" src="../../img/JAL%E7%9A%84%E6%B7%BB%E5%8A%A0.png" /></div></p>
+</li>
+<li>
+<p>由于新增或修改了ALU两个源操作数的多选器，所以要相应的生成或修改这两个多选器的控制信号，让JAL指令执行时可以选择到PC和8。</p>
+</li>
+</ul>
+<h4 id="jalr">JALR指令<a class="headerlink" href="#jalr" title="Permanent link">&para;</a></h4>
+<ul>
+<li>JALR指令的功能类似于JR和JAL的结合。对于跳转操作，可以复用JR指令对应的数据通路。对于Link操作，其返回地址的计算还是PC+8，这与JAL指令是一样的，不过计算的结果不再固定写到31号通用寄存器中，而是写入第rd项寄存器。因此JALR指令可以复用JAL指令计算PC+8并传递的数据通路，无需新增，只是写回级控制信号有所区别。</li>
+<li>相比于JAL指令，JALR指令不再写入31号寄存器，所以在写回级的控制信号需要将写寄存器的来源选择为指令rd域。</li>
+</ul>
+<h4 id="bltzalbgezal">BLTZAL和BGEZAL指令<a class="headerlink" href="#bltzalbgezal" title="Permanent link">&para;</a></h4>
+<ul>
+<li>这两条指令可以看成是BLTZ、BGEZ指令与JAL指令的结合。对于跳转操作，下一个PC的生成逻辑等同于BLTZ、BGEZ；对于Link操作，与JAL相同，将PC+8写入31号寄存器。因此，这两条指令不需要增加数据通路。</li>
+<li>相关的控制信号能够正确对应的产生即可。</li>
+</ul>
+<h2 id="8_1">8条访存<a class="headerlink" href="#8_1" title="Permanent link">&para;</a></h2>
+<h3 id="_23">指令功能<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>指令名称格式</th>
+<th>指令功能简述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LB rt, offset(base)</td>
+<td>取字节有符号扩展</td>
+</tr>
+<tr>
+<td>BU rt, offset(base)</td>
+<td>取字节无符号扩展</td>
+</tr>
+<tr>
+<td>LH rt, offset (base)</td>
+<td>取半字有符号扩展</td>
+</tr>
+<tr>
+<td>LHU rt, offset (base)</td>
+<td>取半字无符号扩展</td>
+</tr>
+<tr>
+<td>LW rt, offset(base)</td>
+<td>取字</td>
+</tr>
+<tr>
+<td>SB rt, offset(base)</td>
+<td>存字节</td>
+</tr>
+<tr>
+<td>SH rt, offset(base)</td>
+<td>存半字</td>
+</tr>
+<tr>
+<td>SW rt, offset (base)</td>
+<td>存字</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>访存指令分为Load和Store两类：Load类指令从数据RAM中读取数据，加载到寄存器中；Store类指令将寄存器中的值保存到数据RAM中。</li>
+<li>Load类指令计算数据RAM虚地址的源操作数来源、地址计算方法、虚实地址转换的规则是完全一样的，且它们得到的访存结果都是写回第rt项寄存器。它们之间的差异仅在于从数据RAM中取回的数据位宽不同。</li>
+<li>Store类指令计算虚地址的操作数来源、地址计算方法、虚实地址转化规则是完全一样的，且都是将 <strong>第rt项</strong> 寄存器中的值存入数据RAM。它们的差异在于存入数据RAM数据的宽度不同。</li>
+<li>由于数据RAM的宽度是4个字节，不同的访存指令会涉及到的宽度有1个字节、2个字节、4个字节，所以就需要使用访存地址的低两位作为偏移量，来选择要使用4个字节中的哪几个字节。同时也会引入地址对齐例外，不过在未实现异常处理的时候，可以暂且不用考虑。</li>
+</ul>
+<h3 id="load">Load类指令<a class="headerlink" href="#load" title="Permanent link">&para;</a></h3>
+<ul>
+<li>根据这些指令的功能，LB、LBU、LH、LHU这四条指令在译码、执行、写回级的数据通路和控制逻辑可以复用LW指令的实现，只是控制信号要对应生成。下面分析如何处理这些指令之间的差异。</li>
+<li>从数据RAM输出结果中选择所需内容<ul>
+<li>对于LB、LBU指令，需要根据偏移量选择1个字节，LH、LHU指令需要选择低2字节或高2字节，所以需要新增一个多路选择器，从数据RAM返回的数据中选择到正确的字节。</li>
+<li>选择器的控制信号是根据访存操作的类型信息和访存地址中包含的偏移量共同生成的。</li>
+</ul>
+</li>
+<li>将选取内容扩展至32位<ul>
+<li>通过多选器选择出来的内容可能是8位或16位，需要扩展到32位才能写回到寄存器中。而进行有符号扩展还是无符号扩展是由指令决定的，LB、LH进行有符号扩展，LBU、LHU进行无符号扩展。</li>
+<li>这部分同样是由访存操作的类型信息和访存地址中包含的偏移量来共同控制的。</li>
+</ul>
+</li>
+</ul>
+<h3 id="store">Store类指令<a class="headerlink" href="#store" title="Permanent link">&para;</a></h3>
+<ul>
+<li>根据这三条Store指令的功能可知，SB和SH指令可以复用SW指令的部分数据通路，只需对这些指令的差异——写入的宽度，以及控制信号进行处理。</li>
+<li>字节写使能<ul>
+<li>实现SB和SH指令的关键在于如何在4字节宽的RAM上完成字节或半字的写入，这可以通过字节写使能来完成。</li>
+<li>字节写使能就是每个字节都有自己对应的写使能，所以4字节宽RAM的字节写使能就有4位，某位为1就会写入对应的字节，为0则保持不变，例如4'b0001的字节写使能表示只有最低字节会修改，4'b1100表示高2字节会修改。</li>
+<li>字节写使能的生成需要由访存操作的类型信息和访存地址中包含的偏移量来共同控制，例如，SB指令的访存地址最低2位如果等于0'b00，则字节写使能就是4'b0001。</li>
+</ul>
+</li>
+<li>扩展至32位的写数据<ul>
+<li>SB指令写入寄存器的永远是 <strong>rt寄存器</strong> 的最低字节，SH指令则是低2字节，因此需要先扩展成32位的数据，再传递给数据RAM。</li>
+<li>如何扩展到32位可以自由发挥，因为字节写使能中0对应的字节不会被写入，所以是写数据中这个字节是什么值不会对结果造成影响，只要保证字节写使能和写数据可以对应上即可。</li>
+</ul>
+</li>
+</ul>
+                
+                  
+                    
+
+<hr>
+<div class="md-source-date">
+  <small>
+    
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">2022年1月5日</span>
+      
+    
+  </small>
+</div>
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../lab4/" class="md-footer__link md-footer__link--prev" aria-label="Previous: 回顾计组实验四" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              回顾计组实验四
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../extend_57/" class="md-footer__link md-footer__link--next" aria-label="Next: 扩展到57条指令" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              扩展到57条指令
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2021 College of Computer Science, Chongqing University.
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.409db549.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.56a63758.min.js"></script>
+      
+    
+  </body>
+</html>
